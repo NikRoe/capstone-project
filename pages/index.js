@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import useSWR from "swr";
 import { SeriesCard } from "../components/SeriesCard/SeriesCard";
 
@@ -14,13 +15,21 @@ export default function Home() {
   return (
     <>
       <h1>Have you seen...?</h1>
-      {data.results ? (
-        data.results.map((series) => (
-          <SeriesCard key={series.id} series={series}></SeriesCard>
-        ))
-      ) : (
-        <div>loading</div>
-      )}
+      <StyledDiv>
+        {data ? (
+          data.results.map((series) => (
+            <SeriesCard key={series.id} series={series}></SeriesCard>
+          ))
+        ) : (
+          <div>loading</div>
+        )}
+      </StyledDiv>
     </>
   );
 }
+
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;
