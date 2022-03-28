@@ -1,6 +1,14 @@
 import React from "react";
+import { GlobalStyle } from "../components/GlobalStyle/GlobalStyle";
 
-import { ThemeProvider } from "styled-components";
+export const decorators = [
+  (Story) => (
+    <>
+      <GlobalStyle />
+      <Story />
+    </>
+  ),
+];
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -11,11 +19,3 @@ export const parameters = {
     },
   },
 };
-
-export const decorators = [
-  (Story) => (
-    <ThemeProvider theme="default">
-      <Story />
-    </ThemeProvider>
-  ),
-];
