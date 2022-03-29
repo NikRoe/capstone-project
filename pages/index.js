@@ -14,11 +14,11 @@ export default function Home() {
     <>
       <h1>Have you seen...?</h1>
       {data ? (
-        <StyledUl>
+        <StyledDiv>
           {data.results.map((series) => (
             <SeriesCard key={series.id} series={series}></SeriesCard>
           ))}
-        </StyledUl>
+        </StyledDiv>
       ) : (
         <div>loading</div>
       )}
@@ -26,7 +26,7 @@ export default function Home() {
   );
 }
 
-const StyledUl = styled.ul`
+const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2rem;

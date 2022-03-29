@@ -11,15 +11,14 @@ export function SeriesCard({ series }) {
       <StyledDiv>
         <SeriesTitle series={series} />
         <SeriesText series={series} />
-        <Button></Button>
+        <Button series={series} />
       </StyledDiv>
     </StyledSection>
   );
 }
 
 const StyledSection = styled.section`
-  display: grid;
-  grid-template-columns: 300px 1fr;
+  display: flex;
   border-radius: 14px;
   padding: 1rem;
   background-color: #026773;
