@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Button } from "./Button";
+import { LinkButton } from "./LinkButton";
 
 export default {
-  title: "Components/Button",
+  title: "Components/LinkButton",
   component: Button,
 };
 
@@ -14,4 +14,6 @@ const exampleSeries = {
   id: 222,
 };
 
-export const DefaultButton = () => <Button series={exampleSeries}></Button>;
+export const DefaultButton = () => (
+  <LinkButton series={exampleSeries}></LinkButton>
+);

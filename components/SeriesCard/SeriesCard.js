@@ -1,17 +1,18 @@
 import styled from "styled-components";
-import { Button } from "../Button/Button";
+import { LinkButton } from "../LinkButton/LinkButton";
 import { SeriesImage } from "../SeriesImage/SeriesImage";
 import { SeriesText } from "../SeriesText/SeriesText";
 import { SeriesTitle } from "../SeriesTitle/SeriesTitle";
 
 export function SeriesCard({ series }) {
+  const seriesLink = `/series/${series.id}`;
   return (
     <StyledSection>
       <SeriesImage series={series} />
       <StyledDiv>
         <SeriesTitle series={series} />
         <SeriesText series={series} />
-        <Button series={series} />
+        <LinkButton href={seriesLink} />
       </StyledDiv>
     </StyledSection>
   );

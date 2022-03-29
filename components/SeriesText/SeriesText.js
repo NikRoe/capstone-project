@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export function SeriesText({ series }) {
-  return <StyledP>{series.overview}</StyledP>;
+  return <StyledParagraph>{series.overview}</StyledParagraph>;
 }
 
-const StyledP = styled.p`
+const StyledParagraph = styled.p`
   text-align: start;
 `;
