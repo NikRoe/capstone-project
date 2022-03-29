@@ -17,7 +17,7 @@ export function Button({ series }) {
 const StyledButton = styled.button`
   background-color: #f2e3d5;
   border-radius: 14px;
-  width: 12rem;
+  width: 10rem;
   height: 3rem;
   &:hover {
     cursor: pointer;

@@ -18,11 +18,11 @@ export function SeriesCard({ series }) {
 }
 
 const StyledSection = styled.section`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   border-radius: 14px;
-  padding: 1rem;
   background-color: #026773;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: space-between;
 `;
 
