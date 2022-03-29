@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { SeriesExtraInfo } from "../SeriesExtraInfo/SeriesExtraInfo";
 import { SeriesImage } from "../SeriesImage/SeriesImage";
 import { SeriesText } from "../SeriesText/SeriesText";
 import { SeriesTitle } from "../SeriesTitle/SeriesTitle";
@@ -12,6 +13,7 @@ export function SeriesDetail({ series }) {
       </StyledTopWrap>
       <StyledDiv>
         <SeriesText series={series} />
+        <SeriesExtraInfo series={series} />
       </StyledDiv>
     </StyledSection>
   );
@@ -32,7 +34,7 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   max-width: 400px;
 `;
 
