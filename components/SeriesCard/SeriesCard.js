@@ -23,6 +23,7 @@ const StyledSection = styled.section`
   border-radius: 14px;
   background-color: #026773;
   gap: 1rem;
+  padding: 1rem;
   justify-content: space-between;
 `;
 
