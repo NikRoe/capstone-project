@@ -17,4 +17,5 @@ const StyledAnchor = styled.a`
   padding: 1rem;
   cursor: pointer;
   text-decoration: none;
+  color: black;
 `;
