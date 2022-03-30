@@ -1,11 +1,11 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-export function LinkButton({ href }) {
+export function LinkButton({ href, buttonText }) {
   return (
     <div>
       <Link href={href} passHref>
-        <StyledAnchor>Read more</StyledAnchor>
+        <StyledAnchor>{buttonText}</StyledAnchor>
       </Link>
     </div>
   );

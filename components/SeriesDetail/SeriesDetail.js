@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { LinkButton } from "../LinkButton/LinkButton";
 import { SeriesExtraInfo } from "../SeriesExtraInfo/SeriesExtraInfo";
 import { SeriesImage } from "../SeriesImage/SeriesImage";
 import { SeriesText } from "../SeriesText/SeriesText";
@@ -8,7 +9,10 @@ export function SeriesDetail({ series }) {
   return (
     <StyledSection>
       <StyledTopWrap>
-        <SeriesTitle series={series} />
+        <StyledLeftTopWrap>
+          <LinkButton href={"/"} buttonText={"Back Home"} />
+          <SeriesTitle series={series} />
+        </StyledLeftTopWrap>
         <SeriesImage series={series} />
       </StyledTopWrap>
       <StyledDiv>
@@ -39,7 +43,15 @@ const StyledDiv = styled.div`
 `;
 
 const StyledTopWrap = styled.div`
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  align-items: stretch;
+  justify-content: flex-end;
+`;
+
+const StyledLeftTopWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;

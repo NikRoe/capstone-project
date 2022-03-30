@@ -12,7 +12,7 @@ export function SeriesCard({ series }) {
       <StyledDiv>
         <SeriesTitle series={series} />
         <SeriesText series={series} />
-        <LinkButton href={seriesLink} />
+        <LinkButton href={seriesLink} buttonText={"Read more"} />
       </StyledDiv>
     </StyledSection>
   );
