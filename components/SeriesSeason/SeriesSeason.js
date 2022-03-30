@@ -6,12 +6,12 @@ import { SeriesEpisode } from "../SeriesEpisode/SeriesEpisode";
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export function SeriesSeason({ season }) {
-  const strippedSeason = season.name.split(" ")[1];
+  const seasonNumber = season.name.split(" ")[1];
   const router = useRouter();
   const { id } = router.query;
 
   const { data, error } = useSWR(
-    `/api/getSeriesById/${id}/${strippedSeason}`,
+    `/api/getSeriesById/${id}/${seasonNumber}`,
     fetcher
   );
 
