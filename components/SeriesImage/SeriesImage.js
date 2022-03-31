@@ -6,7 +6,7 @@ export function SeriesImage({ series }) {
       src={
         series.poster_path !== null
           ? `https://image.tmdb.org/t/p/w300${series.poster_path}`
-          : "/../assets/No_image_available.svg"
+          : "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
       }
       alt={`Image of series ${series.name}`}
       width="300"
