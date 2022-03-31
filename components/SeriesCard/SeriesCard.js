@@ -6,12 +6,15 @@ import { SeriesTitle } from "../SeriesTitle/SeriesTitle";
 
 export function SeriesCard({ series }) {
   const seriesLink = `/series/${series.id}`;
+  function clipTextLength(str, n) {
+    return str.length > n ? str.substr(0, n - 1) + "..." : str;
+  }
   return (
     <StyledSection>
       <SeriesImage series={series} />
       <StyledDiv>
         <SeriesTitle series={series} />
-        <SeriesText series={series} />
+        <SeriesText series={series} clipTextLength={clipTextLength} />
         <LinkButton href={seriesLink} buttonText={"Read more"} />
       </StyledDiv>
     </StyledSection>

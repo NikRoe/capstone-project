@@ -15,6 +15,7 @@
     "axios": "^0.26.1",
     "next": "12.1.0",
     "react": "17.0.2",
+    "react-collapsible": "^2.8.4",
     "react-dom": "17.0.2",
     "styled-components": "^5.3.5",
     "swr": "^1.2.2"
@@ -35,6 +36,7 @@
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0",
     "eslint-plugin-storybook": "^0.5.7",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "storybook-addon-next": "^1.6.2"
   }
 }

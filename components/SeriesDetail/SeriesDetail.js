@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { LinkButton } from "../LinkButton/LinkButton";
 import { SeriesExtraInfo } from "../SeriesExtraInfo/SeriesExtraInfo";
 import { SeriesImage } from "../SeriesImage/SeriesImage";
+import { SeriesSeason } from "../SeriesSeason/SeriesSeason";
 import { SeriesText } from "../SeriesText/SeriesText";
 import { SeriesTitle } from "../SeriesTitle/SeriesTitle";
 
@@ -19,6 +20,13 @@ export function SeriesDetail({ series }) {
         <SeriesText series={series} />
         <SeriesExtraInfo series={series} />
       </StyledDiv>
+      <div>
+        {series.seasons
+          .filter((season) => season.name != "Specials")
+          .map((season) => (
+            <SeriesSeason key={season.id} season={season} />
+          ))}
+      </div>
     </StyledSection>
   );
 }
@@ -31,7 +39,6 @@ const StyledSection = styled.section`
   background-color: #026773;
   gap: 2rem;
   justify-content: space-between;
-  align-items: center;
 `;
 
 const StyledDiv = styled.div`
