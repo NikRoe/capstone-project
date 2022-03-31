@@ -4,16 +4,9 @@ import { LinkButton } from "./LinkButton";
 
 export default {
   title: "Components/LinkButton",
-  component: Button,
-};
-
-const exampleSeries = {
-  name: "Game of Thrones",
-  overview: "some long text",
-  image: "",
-  id: 222,
+  component: LinkButton,
 };
 
 export const DefaultButton = () => (
-  <LinkButton series={exampleSeries}></LinkButton>
+  <LinkButton href="/" buttonText="Read more"></LinkButton>
 );

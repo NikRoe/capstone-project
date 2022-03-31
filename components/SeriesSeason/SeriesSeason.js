@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Collapsible from "react-collapsible";
 import styled from "styled-components";
 import useSWR from "swr";
 import { SeriesEpisode } from "../SeriesEpisode/SeriesEpisode";
@@ -15,25 +16,26 @@ export function SeriesSeason({ season }) {
     fetcher
   );
 
-  console.log(data);
-
   return (
     <>
-      <StyledUnorderedList>
-        <strong>{season.name}</strong>
-      </StyledUnorderedList>
-      {data ? (
-        data.data.episodes.map((episode) => (
-          <SeriesEpisode key={episode.id} episode={episode} />
-        ))
-      ) : (
-        <div>Loading</div>
-      )}
+      <Collapsible trigger={season.name} triggerTagName={styledCollapsible}>
+        {data ? (
+          data.data.episodes.map((episode) => (
+            <SeriesEpisode key={episode.id} episode={episode} />
+          ))
+        ) : (
+          <div>Loading</div>
+        )}
+      </Collapsible>
     </>
   );
 }
 
-const StyledUnorderedList = styled.ul`
-  list-style-type: none;
-  text-align: left;
+const styledCollapsible = styled.div`
+  background-color: #f2e3d5;
+  padding: 0.3rem;
+  border-radius: 14px;
+  cursor: pointer;
+  color: black;
+  border: 0.2rem solid #026773;
 `;
