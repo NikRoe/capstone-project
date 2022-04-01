@@ -29,13 +29,14 @@ const StyledSection = styled.section`
   gap: 1rem;
   padding: 1rem;
   justify-content: space-between;
+  max-width: 800px;
 `;
 
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 400px;
+  /* max-width: 400px; */
   gap: 0.5rem;
   margin-bottom: 1rem;
 `;
