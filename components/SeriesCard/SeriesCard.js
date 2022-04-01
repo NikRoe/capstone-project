@@ -36,7 +36,6 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* max-width: 400px; */
   gap: 0.5rem;
   margin-bottom: 1rem;
 `;
