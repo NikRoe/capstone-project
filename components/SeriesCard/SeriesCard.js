@@ -25,17 +25,17 @@ const StyledSection = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   border-radius: 14px;
-  background-color: #026773;
+  background-color: #414141;
   gap: 1rem;
   padding: 1rem;
   justify-content: space-between;
+  max-width: 800px;
 `;
 
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 400px;
   gap: 0.5rem;
   margin-bottom: 1rem;
 `;

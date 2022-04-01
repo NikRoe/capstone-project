@@ -1,10 +1,22 @@
 import styled from "styled-components";
 
 export function SeriesEpisode({ episode }) {
-  return <StyledListItem>{episode.name}</StyledListItem>;
+  return (
+    <StyledDiv>
+      <input type="checkbox" id={episode.name} name={episode.name} />
+      <label htmlFor={episode.name}>{episode.name}</label>
+    </StyledDiv>
+  );
 }
 
-const StyledListItem = styled.li`
-  list-style-type: none;
-  text-align: left;
+const StyledDiv = styled.div`
+  display: flex;
+  padding: 0.4rem;
+  align-items: center;
+  font-size: smaller;
+
+  > input {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 `;

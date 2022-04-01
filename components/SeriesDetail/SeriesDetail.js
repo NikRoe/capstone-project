@@ -36,7 +36,7 @@ const StyledSection = styled.section`
   flex-direction: column;
   border-radius: 14px;
   padding: 1rem;
-  background-color: #026773;
+  background-color: #414141;
   gap: 2rem;
   justify-content: space-between;
 `;
@@ -54,11 +54,12 @@ const StyledTopWrap = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: stretch;
-  justify-content: flex-end;
 `;
 
 const StyledLeftTopWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  height: 15rem;
+  align-items: flex-start;
 `;
