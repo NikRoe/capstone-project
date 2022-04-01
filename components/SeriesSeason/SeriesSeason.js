@@ -18,24 +18,24 @@ export function SeriesSeason({ season }) {
 
   return (
     <>
-      <Collapsible trigger={season.name} triggerTagName={styledCollapsible}>
-        {data ? (
-          data.data.episodes.map((episode) => (
+      {data ? (
+        <Collapsible trigger={season.name} triggerTagName={styledCollapsible}>
+          {data.data.episodes.map((episode) => (
             <SeriesEpisode key={episode.id} episode={episode} />
-          ))
-        ) : (
-          <div>Loading</div>
-        )}
-      </Collapsible>
+          ))}
+        </Collapsible>
+      ) : (
+        <div>Loading</div>
+      )}
     </>
   );
 }
 
 const styledCollapsible = styled.div`
-  background-color: #f2e3d5;
+  background-color: #ca3e47;
   padding: 0.3rem;
   border-radius: 14px;
   cursor: pointer;
   color: black;
-  border: 0.2rem solid #026773;
+  border: 0.2rem solid #414141;
 `;

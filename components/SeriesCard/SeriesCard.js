@@ -25,7 +25,7 @@ const StyledSection = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   border-radius: 14px;
-  background-color: #026773;
+  background-color: #414141;
   gap: 1rem;
   padding: 1rem;
   justify-content: space-between;
