@@ -20,6 +20,10 @@ export function SeriesSeason({ season }) {
     <>
       {data ? (
         <Collapsible trigger={season.name} triggerTagName={styledCollapsible}>
+          <StyledDiv>
+            <input type="checkbox" id={season.name} name={season.name} />
+            <label htmlFor={season.name}>Mark whole season as watched</label>
+          </StyledDiv>
           {data.data.episodes.map((episode) => (
             <SeriesEpisode key={episode.id} episode={episode} />
           ))}
@@ -38,4 +42,16 @@ const styledCollapsible = styled.div`
   cursor: pointer;
   color: black;
   border: 0.2rem solid #414141;
+`;
+
+const StyledDiv = styled.div`
+  display: flex;
+  padding: 0.4rem;
+  align-items: center;
+  font-size: smaller;
+
+  > input {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 `;

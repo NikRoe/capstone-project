@@ -61,4 +61,5 @@ const StyledLeftTopWrap = styled.div`
   flex-direction: column;
   justify-content: space-around;
   height: 15rem;
+  align-items: flex-start;
 `;

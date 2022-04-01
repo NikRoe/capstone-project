@@ -11,6 +11,12 @@ export function SeriesEpisode({ episode }) {
 
 const StyledDiv = styled.div`
   display: flex;
+  padding: 0.4rem;
+  align-items: center;
+  font-size: smaller;
 
-  padding: 0.2rem;
+  > input {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 `;
