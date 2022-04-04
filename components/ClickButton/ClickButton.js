@@ -1,21 +1,9 @@
 import styled from "styled-components";
 
-export function ClickButton({
-  addSeriesHandler,
-  series,
-  defaultName,
-  isActive,
-  removeSeriesHandler,
-}) {
+export function ClickButton({ handleButtonClick, series, defaultName }) {
   return (
     <>
-      <StyledButton
-        onClick={
-          isActive
-            ? () => removeSeriesHandler(series)
-            : () => addSeriesHandler(series)
-        }
-      >
+      <StyledButton onClick={() => handleButtonClick(series)}>
         {defaultName}
       </StyledButton>
     </>

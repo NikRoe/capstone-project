@@ -6,8 +6,8 @@ const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export default function DetailPage({
   addSeriesHandler,
-  isActive,
   removeSeriesHandler,
+  isWatching,
 }) {
   const router = useRouter();
   const { id } = router.query;
@@ -21,8 +21,8 @@ export default function DetailPage({
           <SeriesDetail
             series={data.data}
             addSeriesHandler={addSeriesHandler}
-            isActive={isActive}
             removeSeriesHandler={removeSeriesHandler}
+            isWatching={isWatching}
           />
         </>
       ) : (

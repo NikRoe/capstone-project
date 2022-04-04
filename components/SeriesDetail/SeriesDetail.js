@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { ClickButton } from "../ClickButton/ClickButton";
 import { LinkButton } from "../LinkButton/LinkButton";
@@ -10,9 +11,21 @@ import { SeriesTitle } from "../SeriesTitle/SeriesTitle";
 export function SeriesDetail({
   series,
   addSeriesHandler,
-  isActive,
   removeSeriesHandler,
+  isWatching,
 }) {
+  let isActive = false;
+
+  function checkIfSeriesIsOnList(series) {
+    if (isWatching.some((entry) => entry.id === series.id)) {
+      isActive = true;
+    } else {
+      isActive = false;
+    }
+  }
+
+  checkIfSeriesIsOnList(series);
+
   return (
     <StyledSection>
       <StyledTopWrap>
@@ -27,15 +40,13 @@ export function SeriesDetail({
         <SeriesExtraInfo series={series} />
       </StyledDiv>
       <ClickButton
-        addSeriesHandler={addSeriesHandler}
+        handleButtonClick={isActive ? removeSeriesHandler : addSeriesHandler}
         series={series}
         defaultName={
           isActive
             ? "Remove from currently watching"
             : "Add to currently watching"
         }
-        isActive={isActive}
-        removeSeriesHandler={removeSeriesHandler}
       />
       <div>
         {series.seasons
