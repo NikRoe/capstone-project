@@ -32,5 +32,4 @@ export default function Home() {
 const StyledDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
 `;

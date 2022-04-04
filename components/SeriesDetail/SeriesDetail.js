@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { ClickButton } from "../ClickButton/ClickButton";
 import { LinkButton } from "../LinkButton/LinkButton";
@@ -50,7 +49,7 @@ export function SeriesDetail({
       />
       <div>
         {series.seasons
-          .filter((season) => season.name != "Specials")
+          .filter((season) => season.name !== "Specials")
           .map((season) => (
             <SeriesSeason key={season.id} season={season} />
           ))}
