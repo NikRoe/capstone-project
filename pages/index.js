@@ -2,6 +2,7 @@ import styled from "styled-components";
 import useSWR from "swr";
 import { SeriesCard } from "../components/SeriesCard/SeriesCard";
 import axios from "axios";
+import { LinkButton } from "../components/LinkButton/LinkButton";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
@@ -20,12 +21,16 @@ export default function Home() {
       ) : (
         <div>loading</div>
       )}
+      <LinkButton
+        href={"/currentlyWatching"}
+        buttonText={"CurrentlyWatching"}
+      />
     </>
   );
 }
 
 const StyledDiv = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 2rem;
 `;

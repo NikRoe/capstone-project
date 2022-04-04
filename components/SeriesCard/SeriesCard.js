@@ -7,7 +7,7 @@ import { SeriesTitle } from "../SeriesTitle/SeriesTitle";
 export function SeriesCard({ series }) {
   const seriesLink = `/series/${series.id}`;
   function clipTextLength(str, n) {
-    return str.length > n ? str.substr(0, n - 1) + "..." : str;
+    return str.length > n ? str.substring(0, n - 1) + "..." : str;
   }
   return (
     <StyledSection>
@@ -22,14 +22,18 @@ export function SeriesCard({ series }) {
 }
 
 const StyledSection = styled.section`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   border-radius: 14px;
   background-color: #414141;
   gap: 1rem;
   padding: 1rem;
   justify-content: space-between;
-  max-width: 800px;
+  max-width: 400px;
+
+  @media (max-width: 375px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const StyledDiv = styled.div`
