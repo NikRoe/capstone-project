@@ -7,7 +7,7 @@ import { SeriesTitle } from "../SeriesTitle/SeriesTitle";
 export function SeriesCard({ series }) {
   const seriesLink = `/series/${series.id}`;
   function clipTextLength(str, n) {
-    return str.length > n ? str.substr(0, n - 1) + "..." : str;
+    return str.length > n ? str.substring(0, n - 1) + "..." : str;
   }
   return (
     <StyledSection>

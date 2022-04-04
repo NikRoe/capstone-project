@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { ClickButton } from "../ClickButton/ClickButton";
 import { LinkButton } from "../LinkButton/LinkButton";
@@ -9,14 +8,6 @@ import { SeriesText } from "../SeriesText/SeriesText";
 import { SeriesTitle } from "../SeriesTitle/SeriesTitle";
 
 export function SeriesDetail({ series, clickHandler }) {
-  // const [isWatching, setIsWatching] = useState([]);
-
-  // function clickHandler(series) {
-  //   setIsWatching([series, ...isWatching]);
-  // }
-
-  // console.log("isWatching", isWatching);
-
   return (
     <StyledSection>
       <StyledTopWrap>
