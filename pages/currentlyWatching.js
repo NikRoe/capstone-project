@@ -3,7 +3,6 @@ import { LinkButton } from "../components/LinkButton/LinkButton";
 import { SeriesCard } from "../components/SeriesCard/SeriesCard";
 
 export default function currentlyWatching({ isWatching }) {
-  console.log(isWatching);
   return (
     <>
       <h1>Currently Watching</h1>
