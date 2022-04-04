@@ -22,14 +22,18 @@ export function SeriesCard({ series }) {
 }
 
 const StyledSection = styled.section`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   border-radius: 14px;
   background-color: #414141;
   gap: 1rem;
   padding: 1rem;
   justify-content: space-between;
-  max-width: 800px;
+  max-width: 400px;
+
+  @media (max-width: 375px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const StyledDiv = styled.div`

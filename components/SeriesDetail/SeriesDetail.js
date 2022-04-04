@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
+import { ClickButton } from "../ClickButton/ClickButton";
 import { LinkButton } from "../LinkButton/LinkButton";
 import { SeriesExtraInfo } from "../SeriesExtraInfo/SeriesExtraInfo";
 import { SeriesImage } from "../SeriesImage/SeriesImage";
@@ -6,7 +8,15 @@ import { SeriesSeason } from "../SeriesSeason/SeriesSeason";
 import { SeriesText } from "../SeriesText/SeriesText";
 import { SeriesTitle } from "../SeriesTitle/SeriesTitle";
 
-export function SeriesDetail({ series }) {
+export function SeriesDetail({ series, clickHandler }) {
+  // const [isWatching, setIsWatching] = useState([]);
+
+  // function clickHandler(series) {
+  //   setIsWatching([series, ...isWatching]);
+  // }
+
+  // console.log("isWatching", isWatching);
+
   return (
     <StyledSection>
       <StyledTopWrap>
@@ -20,6 +30,11 @@ export function SeriesDetail({ series }) {
         <SeriesText series={series} />
         <SeriesExtraInfo series={series} />
       </StyledDiv>
+      <ClickButton
+        clickHandler={clickHandler}
+        series={series}
+        name={"Add to currently watching"}
+      />
       <div>
         {series.seasons
           .filter((season) => season.name != "Specials")
