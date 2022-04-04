@@ -1,10 +1,21 @@
 import styled from "styled-components";
 
-export function ClickButton({ clickHandler, series, defaultName, isActive }) {
-  console.log(isActive);
+export function ClickButton({
+  addSeriesHandler,
+  series,
+  defaultName,
+  isActive,
+  removeSeriesHandler,
+}) {
   return (
     <>
-      <StyledButton onClick={() => clickHandler(series)}>
+      <StyledButton
+        onClick={
+          isActive
+            ? () => removeSeriesHandler(series)
+            : () => addSeriesHandler(series)
+        }
+      >
         {defaultName}
       </StyledButton>
     </>

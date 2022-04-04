@@ -5,10 +5,13 @@ function MyApp({ Component, pageProps }) {
   const [isWatching, setIsWatching] = useState([]);
   const [isActive, setIsActive] = useState(false);
 
-  function clickHandler(series) {
-    console.log("I was clicked");
-    console.log(isWatching);
+  function addSeriesHandler(series) {
     setIsWatching([series, ...isWatching]);
+    setIsActive(!isActive);
+  }
+
+  function removeSeriesHandler(series) {
+    setIsWatching(isWatching.filter((entry) => entry.id !== series.id));
     setIsActive(!isActive);
   }
 
@@ -17,7 +20,8 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyle />
       <Component
         {...pageProps}
-        clickHandler={clickHandler}
+        addSeriesHandler={addSeriesHandler}
+        removeSeriesHandler={removeSeriesHandler}
         isWatching={isWatching}
         isActive={isActive}
       />

@@ -7,7 +7,12 @@ import { SeriesSeason } from "../SeriesSeason/SeriesSeason";
 import { SeriesText } from "../SeriesText/SeriesText";
 import { SeriesTitle } from "../SeriesTitle/SeriesTitle";
 
-export function SeriesDetail({ series, clickHandler, isActive }) {
+export function SeriesDetail({
+  series,
+  addSeriesHandler,
+  isActive,
+  removeSeriesHandler,
+}) {
   return (
     <StyledSection>
       <StyledTopWrap>
@@ -22,7 +27,7 @@ export function SeriesDetail({ series, clickHandler, isActive }) {
         <SeriesExtraInfo series={series} />
       </StyledDiv>
       <ClickButton
-        clickHandler={clickHandler}
+        addSeriesHandler={addSeriesHandler}
         series={series}
         defaultName={
           isActive
@@ -30,6 +35,7 @@ export function SeriesDetail({ series, clickHandler, isActive }) {
             : "Add to currently watching"
         }
         isActive={isActive}
+        removeSeriesHandler={removeSeriesHandler}
       />
       <div>
         {series.seasons

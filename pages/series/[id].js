@@ -4,7 +4,11 @@ import { SeriesDetail } from "../../components/SeriesDetail/SeriesDetail";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
-export default function DetailPage({ clickHandler, isActive }) {
+export default function DetailPage({
+  addSeriesHandler,
+  isActive,
+  removeSeriesHandler,
+}) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -16,8 +20,9 @@ export default function DetailPage({ clickHandler, isActive }) {
         <>
           <SeriesDetail
             series={data.data}
-            clickHandler={clickHandler}
+            addSeriesHandler={addSeriesHandler}
             isActive={isActive}
+            removeSeriesHandler={removeSeriesHandler}
           />
         </>
       ) : (
