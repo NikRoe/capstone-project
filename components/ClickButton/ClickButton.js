@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
-export function ClickButton({ clickHandler, series, name }) {
+export function ClickButton({ clickHandler, series, defaultName, isActive }) {
+  console.log(isActive);
   return (
-    <StyledButton onClick={() => clickHandler(series)}>{name}</StyledButton>
+    <>
+      <StyledButton onClick={() => clickHandler(series)}>
+        {defaultName}
+      </StyledButton>
+    </>
   );
 }
 
