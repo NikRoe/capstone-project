@@ -10,6 +10,6 @@ export default {
 export const DefaultClickButton = () => (
   <ClickButton
     onClick={() => console.log("hi")}
-    defaultName={"test"}
+    defaultName={"Add to currently watching"}
   ></ClickButton>
 );
