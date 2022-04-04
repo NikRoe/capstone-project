@@ -29,6 +29,7 @@ const StyledSection = styled.section`
   padding: 1rem;
   justify-content: space-between;
   max-width: 400px;
+  margin: 1rem 0.5rem 0;
 
   @media (max-width: 375px) {
     display: grid;

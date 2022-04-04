@@ -13,11 +13,9 @@ export default function currentlyWatching({ isWatching }) {
           &#58;&#41;{" "}
         </p>
       ) : isWatching.length > 0 ? (
-        <StyledDiv>
-          {isWatching.map((series) => (
-            <SeriesCard key={series.id} series={series}></SeriesCard>
-          ))}
-        </StyledDiv>
+        isWatching.map((series) => (
+          <SeriesCard key={series.id} series={series}></SeriesCard>
+        ))
       ) : (
         <div>loading</div>
       )}
@@ -26,8 +24,8 @@ export default function currentlyWatching({ isWatching }) {
   );
 }
 
-const StyledDiv = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-`;
+// const StyledDiv = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 2rem;
+// `;
