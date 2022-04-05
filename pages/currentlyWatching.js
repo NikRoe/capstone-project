@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { Navbar } from "../components/Navbar/Navbar";
 import { SeriesCard } from "../components/SeriesCard/SeriesCard";
+import Delayed from "../lib/Delayed";
 
 export default function currentlyWatching({ isWatching }) {
   return (
-    <>
+    <Delayed>
       <h1>Currently Watching</h1>
       {isWatching.length === 0 ? (
         <p>
@@ -22,7 +23,7 @@ export default function currentlyWatching({ isWatching }) {
         <div>loading</div>
       )}
       <Navbar />
-    </>
+    </Delayed>
   );
 }
 
