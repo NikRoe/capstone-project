@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import { Navbar } from "../../components/Navbar/Navbar";
 import { SeriesDetail } from "../../components/SeriesDetail/SeriesDetail";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
@@ -28,6 +29,7 @@ export default function DetailPage({
       ) : (
         <div>Loading...</div>
       )}
+      <Navbar />
     </>
   );
 }

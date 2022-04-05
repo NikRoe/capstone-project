@@ -9,10 +9,7 @@ function getLocalStorage(key) {
 }
 
 function setLocalStorage(key, value) {
-  const ISSERVER = typeof window === "undefined";
-  if (!ISSERVER) {
-    return localStorage.setItem(key, JSON.stringify(value));
-  }
+  return localStorage.setItem(key, JSON.stringify(value));
 }
 
 function MyApp({ Component, pageProps }) {

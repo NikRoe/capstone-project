@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { LinkButton } from "../components/LinkButton/LinkButton";
+import { Navbar } from "../components/Navbar/Navbar";
 import { SeriesCard } from "../components/SeriesCard/SeriesCard";
 
 export default function currentlyWatching({ isWatching }) {
@@ -19,7 +20,7 @@ export default function currentlyWatching({ isWatching }) {
       ) : (
         <div>loading</div>
       )}
-      <LinkButton href={"/"} buttonText={"Back home"} />
+      <Navbar />
     </>
   );
 }
