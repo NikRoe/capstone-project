@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Navbar } from "../components/Navbar/Navbar";
 import { SeriesCard } from "../components/SeriesCard/SeriesCard";
-import Delayed from "../lib/Delayed";
+import { Delayed } from "../lib/Delayed";
 
 export default function currentlyWatching({ isWatching }) {
   return (
