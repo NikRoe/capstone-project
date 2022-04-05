@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ClickButton } from "../ClickButton/ClickButton";
-import { LinkButton } from "../LinkButton/LinkButton";
 import { SeriesExtraInfo } from "../SeriesExtraInfo/SeriesExtraInfo";
 import { SeriesImage } from "../SeriesImage/SeriesImage";
 import { SeriesSeason } from "../SeriesSeason/SeriesSeason";
@@ -29,7 +28,6 @@ export function SeriesDetail({
     <StyledSection>
       <StyledTopWrap>
         <StyledLeftTopWrap>
-          <LinkButton href={"/"} buttonText={"Back Home"} />
           <SeriesTitle series={series} />
         </StyledLeftTopWrap>
         <SeriesImage series={series} />
@@ -66,6 +64,7 @@ const StyledSection = styled.section`
   background-color: #414141;
   gap: 2rem;
   justify-content: space-between;
+  max-width: 500px;
 `;
 
 const StyledDiv = styled.div`
@@ -73,7 +72,6 @@ const StyledDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  max-width: 400px;
 `;
 
 const StyledTopWrap = styled.div`

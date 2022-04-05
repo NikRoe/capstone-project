@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import { LinkButton } from "../components/LinkButton/LinkButton";
+import { Navbar } from "../components/Navbar/Navbar";
 import { SeriesCard } from "../components/SeriesCard/SeriesCard";
+import { Delayed } from "../lib/Delayed";
 
 export default function currentlyWatching({ isWatching }) {
   return (
-    <>
+    <Delayed>
       <h1>Currently Watching</h1>
       {isWatching.length === 0 ? (
         <p>
@@ -13,19 +14,22 @@ export default function currentlyWatching({ isWatching }) {
           &#58;&#41;{" "}
         </p>
       ) : isWatching.length > 0 ? (
-        isWatching.map((series) => (
-          <SeriesCard key={series.id} series={series}></SeriesCard>
-        ))
+        <StyledDiv>
+          {isWatching.map((series) => (
+            <SeriesCard key={series.id} series={series}></SeriesCard>
+          ))}
+        </StyledDiv>
       ) : (
         <div>loading</div>
       )}
-      <LinkButton href={"/"} buttonText={"Back home"} />
-    </>
+      <Navbar />
+    </Delayed>
   );
 }
 
-// const StyledDiv = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   gap: 2rem;
-// `;
+const StyledDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+`;

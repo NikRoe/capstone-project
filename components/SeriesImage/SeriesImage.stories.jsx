@@ -8,6 +8,7 @@ export default {
 };
 
 const exampleSeries = {
+  name: "Arcane",
   poster_path: "/ohGz4HDYGTite1GmRhRuBMVAn03.jpg",
 };
 
