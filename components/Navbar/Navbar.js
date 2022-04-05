@@ -34,6 +34,9 @@ const NavbarWrapper = styled.div`
 `;
 
 const StyledAnchor = styled.a`
+  display: block;
   text-decoration: none;
   color: black;
+  width: 100%;
+  height: 100%;
 `;
