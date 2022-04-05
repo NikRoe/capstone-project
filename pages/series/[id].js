@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import styled from "styled-components";
 import useSWR from "swr";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { SeriesDetail } from "../../components/SeriesDetail/SeriesDetail";
@@ -18,14 +19,14 @@ export default function DetailPage({
   return (
     <>
       {data ? (
-        <>
+        <StyledDiv>
           <SeriesDetail
             series={data.data}
             addSeriesHandler={addSeriesHandler}
             removeSeriesHandler={removeSeriesHandler}
             isWatching={isWatching}
           />
-        </>
+        </StyledDiv>
       ) : (
         <div>Loading...</div>
       )}
@@ -33,3 +34,7 @@ export default function DetailPage({
     </>
   );
 }
+
+const StyledDiv = styled.div`
+  margin-bottom: 3.5rem;
+`;
