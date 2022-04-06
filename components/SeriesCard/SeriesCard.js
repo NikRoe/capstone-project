@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { LinkButton } from "../LinkButton/LinkButton";
 import { SeriesImage } from "../SeriesImage/SeriesImage";
+import { SeriesRating } from "../SeriesRating/SeriesRating";
 import { SeriesText } from "../SeriesText/SeriesText";
 import { SeriesTitle } from "../SeriesTitle/SeriesTitle";
 
@@ -12,11 +13,11 @@ export function SeriesCard({ series }) {
   return (
     <StyledSection>
       <SeriesImage series={series} />
-      <StyledDiv>
+      <StyledTopRightWrapper>
         <SeriesTitle series={series} />
         <SeriesText series={series} clipTextLength={clipTextLength} />
         <LinkButton href={seriesLink} buttonText={"Read more"} />
-      </StyledDiv>
+      </StyledTopRightWrapper>
     </StyledSection>
   );
 }
@@ -37,7 +38,7 @@ const StyledSection = styled.section`
   }
 `;
 
-const StyledDiv = styled.div`
+const StyledTopRightWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
