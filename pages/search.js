@@ -4,7 +4,6 @@ import useSWR from "swr";
 import { Navbar } from "../components/Navbar/Navbar";
 import { Searchbar } from "../components/Searchbar/Searchbar";
 import { SeriesCard } from "../components/SeriesCard/SeriesCard";
-import { MagnifyingGlass } from "../MagnifyingGlass";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 

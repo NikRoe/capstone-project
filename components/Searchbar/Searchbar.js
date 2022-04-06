@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MagnifyingGlass } from "../../MagnifyingGlass";
+import { MagnifyingGlass } from "../../lib/MagnifyingGlass";
 
 export function Searchbar({ searchTermHandler }) {
   return (
