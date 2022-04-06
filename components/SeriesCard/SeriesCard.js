@@ -13,14 +13,11 @@ export function SeriesCard({ series }) {
   return (
     <StyledSection>
       <SeriesImage series={series} />
-      <StyledTopLeftWrapper>
-        <StyledTitleWrapper>
-          <SeriesTitle series={series} />
-          <SeriesRating series={series} />
-        </StyledTitleWrapper>
+      <StyledTopRightWrapper>
+        <SeriesTitle series={series} />
         <SeriesText series={series} clipTextLength={clipTextLength} />
         <LinkButton href={seriesLink} buttonText={"Read more"} />
-      </StyledTopLeftWrapper>
+      </StyledTopRightWrapper>
     </StyledSection>
   );
 }
@@ -41,17 +38,10 @@ const StyledSection = styled.section`
   }
 `;
 
-const StyledTopLeftWrapper = styled.div`
+const StyledTopRightWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 0.5rem;
   margin-bottom: 1rem;
-`;
-
-const StyledTitleWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  align-items: center;
 `;
