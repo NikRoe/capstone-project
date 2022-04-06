@@ -20,10 +20,10 @@ const exampleSeriesLowCount = {
   vote_count: 1,
 };
 
-export const DefaultCount = () => (
+export const ManyVotes = () => (
   <SeriesVoteCount series={exampleSeriesHighCount}></SeriesVoteCount>
 );
 
-export const OneCount = () => (
+export const OneVote = () => (
   <SeriesVoteCount series={exampleSeriesLowCount}></SeriesVoteCount>
 );

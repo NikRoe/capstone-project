@@ -8,8 +8,9 @@ export default {
 };
 
 const exampleSeries = {
-  name: "The Man Who Saved Central City",
-  overview: "some long text",
+  name: "Arcane",
+  overview:
+    "Amid the stark discord of twin cities Piltover and Zaun, two sisters fight on rival sides of a war between magic technologies and clashing convictions.",
   poster_path: "/ohGz4HDYGTite1GmRhRuBMVAn03.jpg",
   id: 222,
   vote_average: 8.5,

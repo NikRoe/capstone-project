@@ -11,6 +11,8 @@ const exampleSeries = {
   name: "Game of Thrones",
   overview: "some long text",
   image: "",
+  vote_average: 8.3,
+  vote_count: 200,
 };
 
 export const DefaultSeriesTitle = () => (

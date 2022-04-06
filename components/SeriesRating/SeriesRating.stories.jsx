@@ -28,7 +28,7 @@ const exampleSeriesLowRating = {
   vote_count: 20000,
 };
 
-export const DefaultRating = () => (
+export const HighRating = () => (
   <SeriesRating series={exampleSeriesHighRating}></SeriesRating>
 );
 

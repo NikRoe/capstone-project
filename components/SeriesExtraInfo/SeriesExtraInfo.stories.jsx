@@ -13,6 +13,6 @@ const exampleSeries = {
   number_of_episodes: 25,
 };
 
-export const DefaultEpisode = () => (
+export const DefaultExtraInfo = () => (
   <SeriesExtraInfo series={exampleSeries}></SeriesExtraInfo>
 );
