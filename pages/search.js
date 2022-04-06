@@ -24,11 +24,15 @@ export default function Search() {
       <Searchbar searchTermHandler={searchTermHandler} />
       {searchTerm ? (
         data ? (
-          <StyledDiv>
-            {data.data.results.map((series) => (
-              <SeriesCard key={series.id} series={series}></SeriesCard>
-            ))}
-          </StyledDiv>
+          searchTerm.length > 0 && data.data.results.length === 0 ? (
+            <div>We found no matching series</div>
+          ) : (
+            <StyledDiv>
+              {data.data.results.map((series) => (
+                <SeriesCard key={series.id} series={series}></SeriesCard>
+              ))}
+            </StyledDiv>
+          )
         ) : (
           <div>loading</div>
         )
@@ -45,3 +49,7 @@ const StyledDiv = styled.div`
   flex-wrap: wrap;
   margin-bottom: 3.5rem;
 `;
+
+// searchTerm.length > 0 && data.data.results.length === 0 ?
+//          <div>We found no matching series</div>)
+//          :
