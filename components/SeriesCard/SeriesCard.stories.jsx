@@ -12,6 +12,7 @@ const exampleSeries = {
   overview: "some long text",
   poster_path: "/ohGz4HDYGTite1GmRhRuBMVAn03.jpg",
   id: 222,
+  vote_average: 8.5,
 };
 
 export const DefaultCard = () => (
