@@ -25,7 +25,7 @@ export default function Search() {
       {searchTerm ? (
         data ? (
           searchTerm.length > 0 && data.data.results.length === 0 ? (
-            <div>We found no matching series</div>
+            <div>We found series no matching your search</div>
           ) : (
             <StyledDiv>
               {data.data.results.map((series) => (
