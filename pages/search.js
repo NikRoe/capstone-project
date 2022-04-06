@@ -34,7 +34,7 @@ export default function Search() {
           <div>loading</div>
         )
       ) : (
-        <div>Enter a search term to find new and exciting series!</div>
+        <div>Enter search term to find new and exciting series!</div>
       )}
       <Navbar />
     </>
