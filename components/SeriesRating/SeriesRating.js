@@ -39,5 +39,5 @@ const StyledRating = styled.p`
 `;
 
 const StyledDiv = styled.div`
-  font-size: smaller;
+  font-size: x-small;
 `;
