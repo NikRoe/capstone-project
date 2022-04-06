@@ -15,7 +15,7 @@ export function SeriesRating({ series }) {
     );
   } else {
     return (
-      <StyledRatingDefault inputColor="red">
+      <StyledRatingDefault inputColor="#E65648">
         ({series.vote_average} &frasl; 10)
       </StyledRatingDefault>
     );

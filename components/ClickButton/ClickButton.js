@@ -11,7 +11,7 @@ export function ClickButton({ handleButtonClick, series, defaultName }) {
 }
 
 const StyledButton = styled.button`
-  background-color: #ca3e47;
+  background-color: #00adb5;
   padding: 0.3rem;
   border-radius: 14px;
   cursor: pointer;
