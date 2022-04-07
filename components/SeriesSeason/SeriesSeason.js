@@ -46,12 +46,13 @@ export function SeriesSeason({ season }) {
     setLocalStorage("isWatched", isWatched);
   }, [isWatched]);
 
-  console.log(isWatched);
-
   return (
     <Delayed>
       {data ? (
-        <Collapsible trigger={season.name} triggerTagName={styledCollapsible}>
+        <Collapsible
+          trigger={`Season ${seasonNumber}`}
+          triggerTagName={styledCollapsible}
+        >
           {data.data.episodes.map((episode) => (
             <SeriesEpisode
               key={episode.id}
