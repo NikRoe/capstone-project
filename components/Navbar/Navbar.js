@@ -14,7 +14,7 @@ export function Navbar() {
     if (typeof window !== "undefined") {
       if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
         setShow(true);
-      } else if (window.scrollY > lastScrollY) {
+      } else if (window.scrollY > lastScrollY + 4) {
         setShow(false);
       } else {
         setShow(true);
