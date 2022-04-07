@@ -41,7 +41,7 @@ const styledCollapsible = styled.div`
   border-radius: 14px;
   cursor: pointer;
   color: black;
-  border: 0.2rem solid #414141;
+  /* border: 0.2rem solid #414141; */
 `;
 
 const StyledDiv = styled.div`

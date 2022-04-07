@@ -45,13 +45,13 @@ export function SeriesDetail({
             : "Add to currently watching"
         }
       />
-      <div>
+      <StyledSeasonWrapper>
         {series.seasons
           .filter((season) => season.name !== "Specials")
           .map((season) => (
             <SeriesSeason key={season.id} season={season} />
           ))}
-      </div>
+      </StyledSeasonWrapper>
     </StyledSection>
   );
 }
@@ -87,4 +87,10 @@ const StyledLeftTopWrap = styled.div`
   justify-content: space-around;
   height: 15rem;
   align-items: flex-start;
+`;
+
+const StyledSeasonWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
 `;
