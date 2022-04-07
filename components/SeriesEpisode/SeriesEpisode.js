@@ -1,7 +1,7 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 export function SeriesEpisode({ episode, handleChange, isWatched }) {
+  // console.log(`${episode.name}${episode.id}`);
   // function onChangeHandler(event) {
   //   handleChange(event);
   //   if (isWatched.some((entry) => entry === event)) {
@@ -21,8 +21,10 @@ export function SeriesEpisode({ episode, handleChange, isWatched }) {
         type="checkbox"
         id={episode.name}
         name={episode.name}
-        onChange={(event) => handleChange(event.target.name)}
-        checked={isWatched.some((entry) => entry === episode.name)}
+        onChange={(event) => handleChange(event.target.name, episode.id)}
+        checked={isWatched.some(
+          (entry) => entry === `${episode.name}${episode.id}`
+        )}
         value={episode.name}
       />
       <label htmlFor={episode.name}>{episode.name}</label>

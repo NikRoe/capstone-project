@@ -1,32 +1,55 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Collapsible from "react-collapsible";
 import styled from "styled-components";
 import useSWR from "swr";
 import { SeriesEpisode } from "../SeriesEpisode/SeriesEpisode";
+import { Delayed } from "../../lib/Delayed";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
+
+function getLocalStorage(key) {
+  const ISSERVER = typeof window === "undefined";
+  if (!ISSERVER) {
+    return JSON.parse(localStorage.getItem(key));
+  }
+}
+
+function setLocalStorage(key, value) {
+  return localStorage.setItem(key, JSON.stringify(value));
+}
 
 export function SeriesSeason({ season }) {
   const seasonNumber = season.name.split(" ")[1];
   const router = useRouter();
   const { id } = router.query;
 
-  const [isWatched, setIsWatched] = useState([]);
+  const [isWatched, setIsWatched] = useState(
+    () => getLocalStorage("isWatched") ?? []
+  );
 
   const { data, error } = useSWR(
     `/api/getSeriesById/${id}/${seasonNumber}`,
     fetcher
   );
 
-  function handleChange(episode) {
-    setIsWatched([...isWatched, episode]);
+  function handleChange(episode, episodeId) {
+    const someName = `${episode}${episodeId}`;
+    if (isWatched.some((entry) => entry === someName)) {
+      setIsWatched(isWatched.filter((entry) => entry !== someName));
+    } else {
+      setIsWatched([...isWatched, someName]);
+    }
   }
+
+  useEffect(() => {
+    setLocalStorage("isWatched", isWatched);
+  }, [isWatched]);
 
   console.log(isWatched);
 
   return (
-    <>
+    <Delayed>
       {data ? (
         <Collapsible trigger={season.name} triggerTagName={styledCollapsible}>
           <StyledDiv>
@@ -45,7 +68,7 @@ export function SeriesSeason({ season }) {
       ) : (
         <div>Loading</div>
       )}
-    </>
+    </Delayed>
   );
 }
 
