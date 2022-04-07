@@ -4,7 +4,6 @@ import Collapsible from "react-collapsible";
 import styled from "styled-components";
 import useSWR from "swr";
 import { SeriesEpisode } from "../SeriesEpisode/SeriesEpisode";
-import { Delayed } from "../../lib/Delayed";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -47,7 +46,7 @@ export function SeriesSeason({ season }) {
   }, [isWatched]);
 
   return (
-    <Delayed>
+    <>
       {data ? (
         <Collapsible
           trigger={`Season ${seasonNumber}`}
@@ -65,7 +64,7 @@ export function SeriesSeason({ season }) {
       ) : (
         <div>Loading</div>
       )}
-    </Delayed>
+    </>
   );
 }
 
@@ -88,10 +87,3 @@ const StyledDiv = styled.div`
     height: 1.5rem;
   }
 `;
-
-{
-  /* <StyledDiv>
-            <input type="checkbox" id={season.name} name={season.name} />
-            <label htmlFor={season.name}>Mark whole season as watched</label>
-          </StyledDiv> */
-}
