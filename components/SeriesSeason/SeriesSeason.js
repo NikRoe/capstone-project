@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 import Collapsible from "react-collapsible";
 import styled from "styled-components";
 import useSWR from "swr";
@@ -11,10 +12,18 @@ export function SeriesSeason({ season }) {
   const router = useRouter();
   const { id } = router.query;
 
+  const [isWatched, setIsWatched] = useState([]);
+
   const { data, error } = useSWR(
     `/api/getSeriesById/${id}/${seasonNumber}`,
     fetcher
   );
+
+  function handleChange(episode) {
+    setIsWatched([...isWatched, episode]);
+  }
+
+  console.log(isWatched);
 
   return (
     <>
@@ -25,7 +34,12 @@ export function SeriesSeason({ season }) {
             <label htmlFor={season.name}>Mark whole season as watched</label>
           </StyledDiv>
           {data.data.episodes.map((episode) => (
-            <SeriesEpisode key={episode.id} episode={episode} />
+            <SeriesEpisode
+              key={episode.id}
+              episode={episode}
+              handleChange={handleChange}
+              isWatched={isWatched}
+            />
           ))}
         </Collapsible>
       ) : (
@@ -40,8 +54,7 @@ const styledCollapsible = styled.div`
   padding: 0.3rem;
   border-radius: 14px;
   cursor: pointer;
-  color: black;
-  /* border: 0.2rem solid #414141; */
+  color: var(--button-text-color);
 `;
 
 const StyledDiv = styled.div`
