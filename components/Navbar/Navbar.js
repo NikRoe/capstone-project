@@ -36,6 +36,12 @@ export function Navbar() {
     <>
       {show && (
         <NavbarWrapper>
+          <NavbarItem isActive={router.pathname == "/search"}>
+            <Link href="/search" passHref>
+              <StyledAnchor>Search</StyledAnchor>
+            </Link>
+          </NavbarItem>
+
           <NavbarItem isActive={router.pathname == "/"}>
             <Link href="/" passHref>
               <StyledAnchor>Home</StyledAnchor>
@@ -56,7 +62,7 @@ const NavbarWrapper = styled.div`
   display: flex;
   position: fixed;
   bottom: 0;
-  left: 25%;
+  left: 12.5%;
   align-items: center;
   justify-content: center;
 `;

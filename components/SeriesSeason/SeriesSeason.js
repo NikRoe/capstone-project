@@ -36,12 +36,12 @@ export function SeriesSeason({ season }) {
 }
 
 const styledCollapsible = styled.div`
-  background-color: #00adb5;
+  background-color: var(--main-callToAction-background-color);
   padding: 0.3rem;
   border-radius: 14px;
   cursor: pointer;
   color: black;
-  border: 0.2rem solid #414141;
+  /* border: 0.2rem solid #414141; */
 `;
 
 const StyledDiv = styled.div`

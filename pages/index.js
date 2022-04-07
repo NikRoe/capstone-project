@@ -3,6 +3,7 @@ import useSWR from "swr";
 import { SeriesCard } from "../components/SeriesCard/SeriesCard";
 import axios from "axios";
 import { Navbar } from "../components/Navbar/Navbar";
+import Head from "next/head";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
@@ -11,6 +12,10 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Have you seen...</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <h1>Have you seen...?</h1>
       {data ? (
         <StyledDiv>

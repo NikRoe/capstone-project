@@ -16,10 +16,10 @@ const NormalListItem = styled.li`
   padding: 0.8rem;
   width: 25vw;
   color: black;
-  background-color: #00adb5;
+  background-color: var(--main-callToAction-background-color);
   list-style-type: none;
 `;
 
 const ActiveListItem = styled(NormalListItem)`
-  background-color: #00d8e3;
+  background-color: var(--highlighted-callToAction-background-color);
 `;

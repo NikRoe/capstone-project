@@ -4,7 +4,7 @@ export function SeriesVoteCount({ series }) {
   return (
     <StyledSpan>
       {" "}
-      Based on {series.vote_count} {series.vote_count > 1 ? "Counts" : "Count"}
+      Based on {series.vote_count} {series.vote_count === 1 ? "Vote" : "Votes"}
     </StyledSpan>
   );
 }

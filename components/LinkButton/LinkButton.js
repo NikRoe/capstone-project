@@ -12,7 +12,7 @@ export function LinkButton({ href, buttonText }) {
 }
 
 const StyledAnchor = styled.a`
-  background-color: #00adb5;
+  background-color: var(--main-callToAction-background-color);
   border-radius: 14px;
   padding: 0.8rem;
   cursor: pointer;
