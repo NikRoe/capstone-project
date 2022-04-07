@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useState } from "react";
 import styled from "styled-components";
 import useSWR from "swr";
@@ -20,6 +21,10 @@ export default function Search() {
 
   return (
     <>
+      <Head>
+        <title>Search</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <h1>Search</h1>
       <Searchbar searchTermHandler={searchTermHandler} />
       {searchTerm ? (
