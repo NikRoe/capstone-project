@@ -27,10 +27,10 @@ export function SeriesDetail({
   return (
     <StyledSection>
       <StyledTopWrap>
+        <SeriesImage series={series} />
         <StyledLeftTopWrap>
           <SeriesTitle series={series} />
         </StyledLeftTopWrap>
-        <SeriesImage series={series} />
       </StyledTopWrap>
       <StyledDiv>
         <SeriesText series={series} />
@@ -75,10 +75,9 @@ const StyledDiv = styled.div`
 `;
 
 const StyledTopWrap = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: stretch;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
 `;
 
 const StyledLeftTopWrap = styled.div`

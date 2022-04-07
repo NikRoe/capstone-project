@@ -22,7 +22,8 @@ export function SeriesCard({ series }) {
 }
 
 const StyledSection = styled.section`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   border-radius: 14px;
   background-color: var(--card-background-color);
   gap: 1rem;
@@ -30,11 +31,6 @@ const StyledSection = styled.section`
   justify-content: space-between;
   max-width: 400px;
   margin: 1rem 0.5rem 0;
-
-  @media (max-width: 375px) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
 `;
 
 const StyledTopRightWrapper = styled.div`

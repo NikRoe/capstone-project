@@ -12,7 +12,9 @@ export function Navbar() {
 
   const controlNavbar = () => {
     if (typeof window !== "undefined") {
-      if (window.scrollY > lastScrollY) {
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+        setShow(true);
+      } else if (window.scrollY > lastScrollY + 4) {
         setShow(false);
       } else {
         setShow(true);
