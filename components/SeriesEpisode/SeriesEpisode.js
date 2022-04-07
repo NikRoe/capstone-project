@@ -1,20 +1,6 @@
 import styled from "styled-components";
 
 export function SeriesEpisode({ episode, handleChange, isWatched }) {
-  // console.log(`${episode.name}${episode.id}`);
-  // function onChangeHandler(event) {
-  //   handleChange(event);
-  //   if (isWatched.some((entry) => entry === event)) {
-  //     setIsActive(true);
-  //     console.log(isActive);
-  //   }
-  // }
-  // const findStuff = isWatched.find((entry) => entry);
-
-  // console.log(findStuff, " i was found");
-
-  // setIsOnList(findStuff === episode.name);
-  // console.log("isonlist", isOnList);
   return (
     <StyledDiv>
       <input

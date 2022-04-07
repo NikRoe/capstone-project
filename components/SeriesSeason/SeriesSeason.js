@@ -34,11 +34,11 @@ export function SeriesSeason({ season }) {
   );
 
   function handleChange(episode, episodeId) {
-    const someName = `${episode}${episodeId}`;
-    if (isWatched.some((entry) => entry === someName)) {
-      setIsWatched(isWatched.filter((entry) => entry !== someName));
+    const episodeIdentifier = `${episode}${episodeId}`;
+    if (isWatched.some((entry) => entry === episodeIdentifier)) {
+      setIsWatched(isWatched.filter((entry) => entry !== episodeIdentifier));
     } else {
-      setIsWatched([...isWatched, someName]);
+      setIsWatched([...isWatched, episodeIdentifier]);
     }
   }
 
