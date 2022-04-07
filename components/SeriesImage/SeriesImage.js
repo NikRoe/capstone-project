@@ -19,6 +19,6 @@ export function SeriesImage({ series }) {
 }
 
 const StyledDiv = styled.div`
-  width: 40vw;
+  max-width: 400px;
   position: relative;
 `;
