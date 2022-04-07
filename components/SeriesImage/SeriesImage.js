@@ -19,7 +19,7 @@ export function SeriesImage({ series }) {
 }
 
 const StyledDiv = styled.div`
-  width: 400px;
+  width: 200px;
   position: relative;
 
   @media (max-width: 375px) {
