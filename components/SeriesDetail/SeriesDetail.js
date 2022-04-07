@@ -61,7 +61,7 @@ const StyledSection = styled.section`
   flex-direction: column;
   border-radius: 14px;
   padding: 1rem;
-  background-color: #414141;
+  background-color: var(--card-background-color);
   gap: 2rem;
   justify-content: space-between;
   max-width: 500px;

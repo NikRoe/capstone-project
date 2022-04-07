@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { LinkButton } from "../LinkButton/LinkButton";
 import { SeriesImage } from "../SeriesImage/SeriesImage";
-import { SeriesRating } from "../SeriesRating/SeriesRating";
 import { SeriesText } from "../SeriesText/SeriesText";
 import { SeriesTitle } from "../SeriesTitle/SeriesTitle";
 
@@ -25,7 +24,7 @@ export function SeriesCard({ series }) {
 const StyledSection = styled.section`
   display: flex;
   border-radius: 14px;
-  background-color: #414141;
+  background-color: var(--card-background-color);
   gap: 1rem;
   padding: 1rem;
   justify-content: space-between;

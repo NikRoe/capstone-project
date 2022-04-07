@@ -49,7 +49,3 @@ const StyledDiv = styled.div`
   flex-wrap: wrap;
   margin-bottom: 3.5rem;
 `;
-
-// searchTerm.length > 0 && data.data.results.length === 0 ?
-//          <div>We found no matching series</div>)
-//          :
