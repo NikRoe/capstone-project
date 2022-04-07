@@ -24,7 +24,7 @@ export default function Search() {
       <Searchbar searchTermHandler={searchTermHandler} />
       {searchTerm ? (
         data ? (
-          searchTerm.length > 0 && data.data.results.length === 0 ? (
+          data.data.results.length === 0 ? (
             <div>We found series no matching your search</div>
           ) : (
             <StyledDiv>
