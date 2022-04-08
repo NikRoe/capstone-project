@@ -1,4 +1,4 @@
-# Hello and welcome to the App Seriesly
+# Welcome to the App Seriesly - Capstone Project
 
 With Seriesly you can keep track of your watch progress in over 7000 series.
 
