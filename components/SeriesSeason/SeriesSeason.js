@@ -33,13 +33,13 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
   );
 
   function handleChange(episodeId) {
-    if (!isWatching.includes(series)) {
-      addSeriesHandler(series);
-    }
     if (isWatched.some((entry) => entry === episodeId)) {
       setIsWatched(isWatched.filter((entry) => entry !== episodeId));
     } else {
       setIsWatched([...isWatched, episodeId]);
+      if (!isWatching.includes(series)) {
+        addSeriesHandler(series);
+      }
     }
   }
 

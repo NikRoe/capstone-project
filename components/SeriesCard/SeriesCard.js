@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { RightArrow } from "../../lib/RightArrow";
 import { LinkButton } from "../LinkButton/LinkButton";
 import { SeriesImage } from "../SeriesImage/SeriesImage";
 import { SeriesText } from "../SeriesText/SeriesText";
