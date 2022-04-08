@@ -29,6 +29,7 @@ export default function Search() {
         searchTermHandler={searchTermHandler}
         searchData={data}
         searchTerm={searchTerm}
+        placeholder={`e.g. Game of Thrones`}
       />
       <Navbar />
     </>

@@ -2,10 +2,18 @@ import styled from "styled-components";
 import { Searchbar } from "../Searchbar/Searchbar";
 import { SeriesCard } from "../SeriesCard/SeriesCard";
 
-export function SWRSearchForm({ searchTermHandler, searchData, searchTerm }) {
+export function SWRSearchForm({
+  searchTermHandler,
+  searchData,
+  searchTerm,
+  placeholder,
+}) {
   return (
     <>
-      <Searchbar searchTermHandler={searchTermHandler} />
+      <Searchbar
+        searchTermHandler={searchTermHandler}
+        placeholder={placeholder}
+      />
       {searchTerm ? (
         searchData ? (
           searchData.data.results.length === 0 ? (

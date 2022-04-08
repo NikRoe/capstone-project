@@ -15,6 +15,8 @@ export default function CurrentlyWatching({ isWatching }) {
       search(searchInput, isWatching, { keySelector: (obj) => obj.name })
     );
   }
+
+  console.log(isWatching);
   return (
     <Delayed>
       <Head>
@@ -33,6 +35,7 @@ export default function CurrentlyWatching({ isWatching }) {
           <FuzzySearchForm
             searchTermHandler={onSearchbarChange}
             searchData={searchList}
+            placeholder={`e.g. ${isWatching[0].name}`}
           />
 
           {searchList.length == 0 && (

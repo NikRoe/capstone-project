@@ -2,10 +2,17 @@ import styled from "styled-components";
 import { Searchbar } from "../Searchbar/Searchbar";
 import { SeriesCard } from "../SeriesCard/SeriesCard";
 
-export function FuzzySearchForm({ searchTermHandler, searchData }) {
+export function FuzzySearchForm({
+  searchTermHandler,
+  searchData,
+  placeholder,
+}) {
   return (
     <>
-      <Searchbar searchTermHandler={searchTermHandler} />
+      <Searchbar
+        searchTermHandler={searchTermHandler}
+        placeholder={placeholder}
+      />
       {searchData ? (
         <StyledDiv>
           {searchData.map((series) => (
