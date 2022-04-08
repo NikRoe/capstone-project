@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { MagnifyingGlass } from "../../lib/MagnifyingGlass";
 
-export function Searchbar({ searchTermHandler }) {
+export function Searchbar({ searchTermHandler, placeholder }) {
   return (
     <StyledSearchbarWrapper>
       <MagnifyingGlass />
       <StyledInput
         id="searchInput"
         onChange={(event) => searchTermHandler(event.target.value)}
-        placeholder={`e.g. Game of Thrones`}
+        placeholder={placeholder}
       ></StyledInput>
       <label htmlFor="searchInput"></label>
     </StyledSearchbarWrapper>

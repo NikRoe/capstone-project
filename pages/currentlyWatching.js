@@ -1,10 +1,21 @@
 import Head from "next/head";
-import styled from "styled-components";
 import { Navbar } from "../components/Navbar/Navbar";
-import { SeriesCard } from "../components/SeriesCard/SeriesCard";
 import { Delayed } from "../lib/Delayed";
+import { search } from "fast-fuzzy";
+import { useState } from "react";
+import { FuzzySearchForm } from "../components/SearchForms/FuzzySearchForm";
 
-export default function currentlyWatching({ isWatching }) {
+export default function CurrentlyWatching({ isWatching }) {
+  const [searchList, setSearchList] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+
+  function onSearchbarChange(searchInput) {
+    setSearchList(
+      search(searchInput, isWatching, { keySelector: (obj) => obj.name })
+    );
+    setSearchTerm(searchInput);
+  }
+
   return (
     <Delayed>
       <Head>
@@ -19,11 +30,15 @@ export default function currentlyWatching({ isWatching }) {
           &#58;&#41;{" "}
         </p>
       ) : isWatching.length > 0 ? (
-        <StyledDiv>
-          {isWatching.map((series) => (
-            <SeriesCard key={series.id} series={series}></SeriesCard>
-          ))}
-        </StyledDiv>
+        <>
+          <FuzzySearchForm
+            searchTermHandler={onSearchbarChange}
+            searchData={searchList}
+            placeholder={`e.g. ${isWatching[0].name}`}
+            searchTerm={searchTerm}
+            isWatching={isWatching}
+          />
+        </>
       ) : (
         <div>loading</div>
       )}
@@ -31,10 +46,3 @@ export default function currentlyWatching({ isWatching }) {
     </Delayed>
   );
 }
-
-const StyledDiv = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 3.5rem;
-`;
