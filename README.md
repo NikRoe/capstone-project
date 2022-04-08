@@ -1,34 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hello and welcome to the App Seriesly
 
-## Getting Started
+With Seriesly you can keep track of your watch progress in over 7000 series.
 
-First, run the development server:
+- You can search for series,
+- add them to your list of currently watched series,
+- mark every episode as watched to never forget again where you left of.
+  All data is stored locally in your browser and will only be reset if you clear your browser cache.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## How to and navigation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+When you open [Seriesly](capstone-project-virid.vercel.app) you will start at the Home page and see a list of 20 popular series.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+There are several ways of navigating through Seriesly:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+- By clicking on "read more" on any series, you are able to navigate to a more detailed view for that particular series.
+- At the bottom of every page, there is a navigation bar with which you can quickly go to either Search, Home or Watching.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Detail View
 
-## Learn More
+When in the so called Detail View, you may add the respective series to your Watching list.
+Another click on this button will remove said series from your Watching list.
 
-To learn more about Next.js, take a look at the following resources:
+By clicking on any of the seasons, a list of episodes from that series will expand.
+Those episodes can be marked as watched to keep track of your progress.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The changes made in this view will be stored locally in your browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Search
 
-## Deploy on Vercel
+By navigating to the Search page, you can search for new and exiting series.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Watching
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+By navigating to the Watching page, you will see a list of all the series that you previously marked as being currently watched.
