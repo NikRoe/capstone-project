@@ -1,5 +1,7 @@
 # Welcome to the App Seriesly - Capstone Project
 
+### This is a capstone project for the web development bootcamp of [neuefische](https://www.neuefische.de/)
+
 With Seriesly you can keep track of your watch progress in over 7000 series.
 
 - You can search for series,
