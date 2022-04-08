@@ -13,10 +13,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Have you seen...</title>
+        <title>Seriesly</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <h1>Have you seen...?</h1>
+      <h1>Seriesly?</h1>
       {data ? (
         <StyledDiv>
           {data.data.results.map((series) => (
@@ -34,5 +34,6 @@ export default function Home() {
 const StyledDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
   margin-bottom: 3.5rem;
 `;
