@@ -7,10 +7,8 @@ export function SeriesEpisode({ episode, handleChange, isWatched }) {
         type="checkbox"
         id={episode.name}
         name={episode.name}
-        onChange={(event) => handleChange(event.target.name, episode.id)}
-        checked={isWatched.some(
-          (entry) => entry === `${episode.name}${episode.id}`
-        )}
+        onChange={() => handleChange(episode.id)}
+        checked={isWatched.some((entry) => entry === episode.id)}
         value={episode.name}
       />
       <label htmlFor={episode.name}>{episode.name}</label>

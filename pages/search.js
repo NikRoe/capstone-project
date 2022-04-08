@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { useState } from "react";
-import styled from "styled-components";
 import useSWR from "swr";
 import { Navbar } from "../components/Navbar/Navbar";
 import { SWRSearchForm } from "../components/SearchForms/SWRSearchForm";
@@ -35,9 +34,3 @@ export default function Search() {
     </>
   );
 }
-
-const StyledDiv = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 3.5rem;
-`;

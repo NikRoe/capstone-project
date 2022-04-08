@@ -17,16 +17,18 @@ export default function Home() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <h1>Seriesly</h1>
-      {data ? (
-        <StyledDiv>
-          {data.data.results.map((series) => (
-            <SeriesCard key={series.id} series={series}></SeriesCard>
-          ))}
-        </StyledDiv>
-      ) : (
-        <div>loading</div>
-      )}
-      <Navbar />
+      <main>
+        {data ? (
+          <StyledDiv>
+            {data.data.results.map((series) => (
+              <SeriesCard key={series.id} series={series}></SeriesCard>
+            ))}
+          </StyledDiv>
+        ) : (
+          <div>loading</div>
+        )}
+        <Navbar />
+      </main>
     </>
   );
 }
@@ -34,6 +36,7 @@ export default function Home() {
 const StyledDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 3.5rem;
 `;
