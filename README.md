@@ -33,3 +33,15 @@ By navigating to the Search page, you can search for new and exiting series.
 ### Watching
 
 By navigating to the Watching page, you will see a list of all the series that you previously marked as being currently watched.
+
+## Tech Stack
+
+- React
+- Next.js
+- Styled-components
+- localStorage
+- Storybook
+- SWR
+- axios
+- Vercel
+- TMDB API
