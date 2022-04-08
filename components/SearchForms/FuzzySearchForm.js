@@ -2,13 +2,13 @@ import styled from "styled-components";
 import { Searchbar } from "../Searchbar/Searchbar";
 import { SeriesCard } from "../SeriesCard/SeriesCard";
 
-export function SearchForm({ searchTermHandler, searchList }) {
+export function FuzzySearchForm({ searchTermHandler, searchData }) {
   return (
     <>
       <Searchbar searchTermHandler={searchTermHandler} />
-      {searchList ? (
+      {searchData ? (
         <StyledDiv>
-          {searchList.map((series) => (
+          {searchData.map((series) => (
             <SeriesCard key={series.id} series={series}></SeriesCard>
           ))}
         </StyledDiv>

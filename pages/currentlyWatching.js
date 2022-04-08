@@ -5,7 +5,7 @@ import { SeriesCard } from "../components/SeriesCard/SeriesCard";
 import { Delayed } from "../lib/Delayed";
 import { search } from "fast-fuzzy";
 import { useState } from "react";
-import { SearchForm } from "../components/SearchForm/SearchForm";
+import { FuzzySearchForm } from "../components/SearchForms/FuzzySearchForm";
 
 export default function CurrentlyWatching({ isWatching }) {
   const [searchList, setSearchList] = useState("");
@@ -30,9 +30,9 @@ export default function CurrentlyWatching({ isWatching }) {
         </p>
       ) : isWatching.length > 0 ? (
         <>
-          <SearchForm
+          <FuzzySearchForm
             searchTermHandler={onSearchbarChange}
-            searchList={searchList}
+            searchData={searchList}
           />
 
           {searchList.length == 0 && (

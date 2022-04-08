@@ -3,8 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import useSWR from "swr";
 import { Navbar } from "../components/Navbar/Navbar";
-import { Searchbar } from "../components/Searchbar/Searchbar";
-import { SeriesCard } from "../components/SeriesCard/SeriesCard";
+import { SWRSearchForm } from "../components/SearchForms/SWRSearchForm";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -26,24 +25,11 @@ export default function Search() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <h1>Search</h1>
-      <Searchbar searchTermHandler={searchTermHandler} />
-      {searchTerm ? (
-        data ? (
-          data.data.results.length === 0 ? (
-            <div>We found no series matching your search</div>
-          ) : (
-            <StyledDiv>
-              {data.data.results.map((series) => (
-                <SeriesCard key={series.id} series={series}></SeriesCard>
-              ))}
-            </StyledDiv>
-          )
-        ) : (
-          <div>loading</div>
-        )
-      ) : (
-        <div>Enter search term to find new and exciting series!</div>
-      )}
+      <SWRSearchForm
+        searchTermHandler={searchTermHandler}
+        searchData={data}
+        searchTerm={searchTerm}
+      />
       <Navbar />
     </>
   );
