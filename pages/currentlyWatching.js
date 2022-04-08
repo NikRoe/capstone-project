@@ -35,6 +35,6 @@ export default function currentlyWatching({ isWatching }) {
 const StyledDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
   margin-bottom: 3.5rem;
 `;
