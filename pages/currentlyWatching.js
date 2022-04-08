@@ -9,14 +9,15 @@ import { FuzzySearchForm } from "../components/SearchForms/FuzzySearchForm";
 
 export default function CurrentlyWatching({ isWatching }) {
   const [searchList, setSearchList] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   function onSearchbarChange(searchInput) {
     setSearchList(
       search(searchInput, isWatching, { keySelector: (obj) => obj.name })
     );
+    setSearchTerm(searchInput);
   }
 
-  console.log(isWatching);
   return (
     <Delayed>
       <Head>
@@ -38,13 +39,15 @@ export default function CurrentlyWatching({ isWatching }) {
             placeholder={`e.g. ${isWatching[0].name}`}
           />
 
-          {searchList.length == 0 && (
+          {searchTerm.length > 0 && <div>No matching results were found</div>}
+
+          {searchList.length === 0 && searchTerm.length === 0 ? (
             <StyledDiv>
               {isWatching.map((series) => (
                 <SeriesCard key={series.id} series={series}></SeriesCard>
               ))}
             </StyledDiv>
-          )}
+          ) : null}
         </>
       ) : (
         <div>loading</div>
