@@ -1,7 +1,5 @@
 import Head from "next/head";
-import styled from "styled-components";
 import { Navbar } from "../components/Navbar/Navbar";
-import { SeriesCard } from "../components/SeriesCard/SeriesCard";
 import { Delayed } from "../lib/Delayed";
 import { search } from "fast-fuzzy";
 import { useState } from "react";
@@ -37,17 +35,9 @@ export default function CurrentlyWatching({ isWatching }) {
             searchTermHandler={onSearchbarChange}
             searchData={searchList}
             placeholder={`e.g. ${isWatching[0].name}`}
+            searchTerm={searchTerm}
+            isWatching={isWatching}
           />
-
-          {searchTerm.length > 0 && <div>No matching results were found</div>}
-
-          {searchList.length === 0 && searchTerm.length === 0 ? (
-            <StyledDiv>
-              {isWatching.map((series) => (
-                <SeriesCard key={series.id} series={series}></SeriesCard>
-              ))}
-            </StyledDiv>
-          ) : null}
         </>
       ) : (
         <div>loading</div>
@@ -56,10 +46,3 @@ export default function CurrentlyWatching({ isWatching }) {
     </Delayed>
   );
 }
-
-const StyledDiv = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 3.5rem;
-`;
