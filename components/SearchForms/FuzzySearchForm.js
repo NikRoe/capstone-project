@@ -21,10 +21,9 @@ export function FuzzySearchForm({
             <SeriesCard key={series.id} series={series}></SeriesCard>
           ))}
         </StyledDiv>
-      ) : null}
-      {searchTerm.length > 0 && <div>No matching results were found</div>}
-
-      {searchData.length === 0 && searchTerm.length === 0 ? (
+      ) : searchTerm.length > 0 && searchData.length === 0 ? (
+        <div>No matching results were found</div>
+      ) : searchData.length === 0 && searchTerm.length === 0 ? (
         <StyledDiv>
           {isWatching.map((series) => (
             <SeriesCard key={series.id} series={series}></SeriesCard>

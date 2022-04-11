@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Searchbar } from "../Searchbar/Searchbar";
 import { SeriesCard } from "../SeriesCard/SeriesCard";
 
-export function SWRSearchForm({
+export function FetchSearchForm({
   searchTermHandler,
   searchData,
   searchTerm,
