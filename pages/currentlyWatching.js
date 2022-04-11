@@ -26,9 +26,9 @@ export default function CurrentlyWatching({ isWatching }) {
         <h1>Currently Watching</h1>
         {isWatching.length === 0 ? (
           <p>
-            You did not add any series to your currently Watching List yet. To
-            do so, go to any series and click on &#34;Add to currently
-            watching&#34; &#58;&#41;{" "}
+            You did not add any series to your Watching list yet. To do so, go
+            to any series and click on &#34;Add to currently watching&#34;
+            &#58;&#41;{" "}
           </p>
         ) : isWatching.length > 0 ? (
           <>
