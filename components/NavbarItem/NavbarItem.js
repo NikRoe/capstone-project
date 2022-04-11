@@ -12,7 +12,7 @@ export function NavbarItem({ children, isActive }) {
   );
 }
 
-const NormalListItem = styled.li`
+const NormalListItem = styled.div`
   padding: 0.8rem;
   width: 25vw;
   color: black;

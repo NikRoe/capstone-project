@@ -60,13 +60,16 @@ export function Navbar() {
   );
 }
 
-const NavbarWrapper = styled.div`
+const NavbarWrapper = styled.nav`
   display: flex;
   position: fixed;
   bottom: 0;
   left: 12.5%;
   align-items: center;
   justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 `;
 
 const StyledAnchor = styled.a`

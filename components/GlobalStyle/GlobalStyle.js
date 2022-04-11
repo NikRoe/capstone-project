@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     --main-text-color: #eee;
     --button-text-color: black;
     --main-background-color: #525252F0;
-    --card-background-color: #414141;
+    --card-background-color: #2E2E2E;
     --main-callToAction-background-color: #00adb5;
     --highlighted-callToAction-background-color: #00d8e3;
   }
