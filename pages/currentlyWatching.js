@@ -22,27 +22,29 @@ export default function CurrentlyWatching({ isWatching }) {
         <title>Currently Watching</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <h1>Currently Watching</h1>
-      {isWatching.length === 0 ? (
-        <p>
-          You did not add any series to your currently Watching List yet. To do
-          so, go to any series and click on &#34;Add to currently watching&#34;
-          &#58;&#41;{" "}
-        </p>
-      ) : isWatching.length > 0 ? (
-        <>
-          <FuzzySearchForm
-            searchTermHandler={onSearchbarChange}
-            searchData={searchList}
-            placeholder={`e.g. ${isWatching[0].name}`}
-            searchTerm={searchTerm}
-            isWatching={isWatching}
-          />
-        </>
-      ) : (
-        <div>loading</div>
-      )}
-      <Navbar />
+      <div role={"main"}>
+        <h1>Currently Watching</h1>
+        {isWatching.length === 0 ? (
+          <p>
+            You did not add any series to your currently Watching List yet. To
+            do so, go to any series and click on &#34;Add to currently
+            watching&#34; &#58;&#41;{" "}
+          </p>
+        ) : isWatching.length > 0 ? (
+          <>
+            <FuzzySearchForm
+              searchTermHandler={onSearchbarChange}
+              searchData={searchList}
+              placeholder={`e.g. ${isWatching[0].name}`}
+              searchTerm={searchTerm}
+              isWatching={isWatching}
+            />
+          </>
+        ) : (
+          <div>loading</div>
+        )}
+        <Navbar />
+      </div>
     </Delayed>
   );
 }

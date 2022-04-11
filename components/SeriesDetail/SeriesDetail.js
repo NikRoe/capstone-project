@@ -25,7 +25,7 @@ export function SeriesDetail({
   checkIfSeriesIsOnList(series);
 
   return (
-    <StyledSection>
+    <StyledSection role={"main"}>
       <StyledTopWrap>
         <SeriesImage series={series} />
         <StyledLeftTopWrap>

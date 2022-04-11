@@ -16,17 +16,20 @@ export default function Home() {
         <title>Seriesly</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <h1>Seriesly</h1>
-      {data ? (
-        <StyledDiv>
-          {data.data.results.map((series) => (
-            <SeriesCard key={series.id} series={series}></SeriesCard>
-          ))}
-        </StyledDiv>
-      ) : (
-        <div>loading</div>
-      )}
-      <Navbar />
+      <div role={"main"}>
+        <h1>Seriesly</h1>
+        {data ? (
+          <StyledDiv>
+            {data.data.results.map((series) => (
+              <SeriesCard key={series.id} series={series}></SeriesCard>
+            ))}
+          </StyledDiv>
+        ) : (
+          <div>loading</div>
+        )}
+
+        <Navbar />
+      </div>
     </>
   );
 }

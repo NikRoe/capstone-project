@@ -23,14 +23,16 @@ export default function Search() {
         <title>Search</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <h1>Search</h1>
-      <SWRSearchForm
-        searchTermHandler={searchTermHandler}
-        searchData={data}
-        searchTerm={searchTerm}
-        placeholder={`e.g. Game of Thrones`}
-      />
-      <Navbar />
+      <div role={"main"}>
+        <h1>Search</h1>
+        <SWRSearchForm
+          searchTermHandler={searchTermHandler}
+          searchData={data}
+          searchTerm={searchTerm}
+          placeholder={`e.g. Game of Thrones`}
+        />
+        <Navbar />
+      </div>
     </>
   );
 }

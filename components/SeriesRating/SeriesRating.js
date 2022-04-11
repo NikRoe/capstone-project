@@ -20,7 +20,7 @@ export function SeriesRating({ series }) {
     } else {
       return (
         <>
-          <StyledRating inputColor="#E65648">
+          <StyledRating inputColor="#FF5E4F">
             ({series.vote_average} &frasl; 10)
             <SeriesVoteCount series={series} />
           </StyledRating>
