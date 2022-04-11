@@ -4,6 +4,8 @@ import { SeriesCard } from "../components/SeriesCard/SeriesCard";
 import axios from "axios";
 import { Navbar } from "../components/Navbar/Navbar";
 import Head from "next/head";
+import { getSession } from "next-auth/react";
+import LoginButton from "../components/LoginButton/LoginButton";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
@@ -17,6 +19,7 @@ export default function Home() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div role={"main"}>
+        <LoginButton />
         <h1>Seriesly</h1>
         {data ? (
           <StyledDiv>
@@ -41,3 +44,13 @@ const StyledDiv = styled.div`
   gap: 1rem;
   margin-bottom: 3.5rem;
 `;
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  return {
+    props: {
+      session,
+    },
+  };
+}
