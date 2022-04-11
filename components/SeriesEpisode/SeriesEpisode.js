@@ -8,7 +8,7 @@ export function SeriesEpisode({ episode, handleChange, isWatched }) {
         id={episode.name}
         name={episode.name}
         onChange={() => handleChange(episode.id)}
-        checked={isWatched.some((entry) => entry === episode.id)}
+        checked={isWatched.includes(episode.id)}
         value={episode.name}
       />
       <label htmlFor={episode.name}>{episode.name}</label>
