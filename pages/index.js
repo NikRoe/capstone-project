@@ -34,6 +34,7 @@ export default function Home() {
 const StyledDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 3.5rem;
 `;

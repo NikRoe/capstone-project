@@ -34,7 +34,6 @@ export function SeriesDetail({
       </StyledTopWrap>
       <StyledDiv>
         <SeriesText series={series} />
-        <SeriesExtraInfo series={series} />
       </StyledDiv>
       <ClickButton
         handleButtonClick={isActive ? removeSeriesHandler : addSeriesHandler}
@@ -49,7 +48,13 @@ export function SeriesDetail({
         {series.seasons
           .filter((season) => season.name !== "Specials")
           .map((season) => (
-            <SeriesSeason key={season.id} season={season} />
+            <SeriesSeason
+              key={season.id}
+              season={season}
+              isWatching={isWatching}
+              addSeriesHandler={addSeriesHandler}
+              series={series}
+            />
           ))}
       </StyledSeasonWrapper>
     </StyledSection>

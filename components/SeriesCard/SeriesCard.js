@@ -15,7 +15,7 @@ export function SeriesCard({ series }) {
       <StyledTopRightWrapper>
         <SeriesTitle series={series} />
         <SeriesText series={series} clipTextLength={clipTextLength} />
-        <LinkButton href={seriesLink} buttonText={"Read more"} />
+        <LinkButton href={seriesLink} />
       </StyledTopRightWrapper>
     </StyledSection>
   );

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import useSWR from "swr";
@@ -18,6 +19,9 @@ export default function DetailPage({
 
   return (
     <>
+      <Head>
+        <title>{data ? data.data.name : null}</title>
+      </Head>
       {data ? (
         <StyledDiv>
           <SeriesDetail

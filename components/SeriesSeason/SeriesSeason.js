@@ -18,7 +18,7 @@ function setLocalStorage(key, value) {
   return localStorage.setItem(key, JSON.stringify(value));
 }
 
-export function SeriesSeason({ season }) {
+export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
   const seasonNumber = season.name.split(" ")[1];
   const router = useRouter();
   const { id } = router.query;
@@ -32,18 +32,20 @@ export function SeriesSeason({ season }) {
     fetcher
   );
 
-  function handleChange(episode, episodeId) {
-    const episodeIdentifier = `${episode}${episodeId}`;
-    if (isWatched.some((entry) => entry === episodeIdentifier)) {
-      setIsWatched(isWatched.filter((entry) => entry !== episodeIdentifier));
-    } else {
-      setIsWatched([...isWatched, episodeIdentifier]);
-    }
-  }
-
   useEffect(() => {
     setLocalStorage("isWatched", isWatched);
   }, [isWatched]);
+
+  function handleChange(episodeId) {
+    if (isWatched.some((entry) => entry === episodeId)) {
+      setIsWatched(isWatched.filter((entry) => entry !== episodeId));
+    } else {
+      setIsWatched([...isWatched, episodeId]);
+      if (isWatching.some((entry) => entry.id === series.id) === false) {
+        addSeriesHandler(series);
+      }
+    }
+  }
 
   return (
     <>
