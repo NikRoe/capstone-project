@@ -32,20 +32,20 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
     fetcher
   );
 
+  useEffect(() => {
+    setLocalStorage("isWatched", isWatched);
+  }, [isWatched]);
+
   function handleChange(episodeId) {
     if (isWatched.some((entry) => entry === episodeId)) {
       setIsWatched(isWatched.filter((entry) => entry !== episodeId));
     } else {
       setIsWatched([...isWatched, episodeId]);
-      if (!isWatching.includes(series)) {
+      if (isWatching.some((entry) => entry.id === series.id) === false) {
         addSeriesHandler(series);
       }
     }
   }
-
-  useEffect(() => {
-    setLocalStorage("isWatched", isWatched);
-  }, [isWatched]);
 
   return (
     <>
