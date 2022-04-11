@@ -25,7 +25,7 @@ export function SeriesDetail({
   checkIfSeriesIsOnList(series);
 
   return (
-    <StyledSection role={"main"}>
+    <StyledSection>
       <StyledTopWrap>
         <SeriesImage series={series} />
         <StyledLeftTopWrap>
@@ -61,7 +61,7 @@ export function SeriesDetail({
   );
 }
 
-const StyledSection = styled.section`
+const StyledSection = styled.main`
   display: flex;
   flex-direction: column;
   border-radius: 14px;
