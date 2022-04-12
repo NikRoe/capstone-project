@@ -1,3 +1,4 @@
+import { useSession } from "next-auth/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import styled from "styled-components";
@@ -17,11 +18,18 @@ export default function DetailPage({
 
   const { data, error } = useSWR(`/api/getSeriesById/${id}`, fetcher);
 
+  const { data: session } = useSession();
+
   return (
     <>
       <Head>
         <title>{data ? data.data.name : null}</title>
       </Head>
+      {session ? (
+        <p>
+          Signed in as <strong>{session.user.name}</strong>
+        </p>
+      ) : null}
       {data ? (
         <StyledDiv>
           <SeriesDetail
