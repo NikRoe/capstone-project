@@ -1,3 +1,4 @@
+import { SessionProvider } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { GlobalStyle } from "../components/GlobalStyle/GlobalStyle";
 
@@ -12,7 +13,7 @@ function setLocalStorage(key, value) {
   return localStorage.setItem(key, JSON.stringify(value));
 }
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [isWatching, setIsWatching] = useState(
     () => getLocalStorage("isWatching") ?? []
   );
@@ -31,13 +32,15 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <GlobalStyle />
-      <Component
-        {...pageProps}
-        addSeriesHandler={addSeriesHandler}
-        removeSeriesHandler={removeSeriesHandler}
-        isWatching={isWatching}
-      />
+      <SessionProvider session={session}>
+        <GlobalStyle />
+        <Component
+          {...pageProps}
+          addSeriesHandler={addSeriesHandler}
+          removeSeriesHandler={removeSeriesHandler}
+          isWatching={isWatching}
+        />
+      </SessionProvider>
     </>
   );
 }

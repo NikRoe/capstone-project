@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useState } from "react";
 import useSWR from "swr";
 import { Navbar } from "../components/Navbar/Navbar";
-import { SWRSearchForm } from "../components/SearchForms/SWRSearchForm";
+import { FetchSearchForm } from "../components/SearchForms/FetchSearchForm";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
@@ -25,7 +25,7 @@ export default function Search() {
       </Head>
       <div role={"main"}>
         <h1>Search</h1>
-        <SWRSearchForm
+        <FetchSearchForm
           searchTermHandler={searchTermHandler}
           searchData={data}
           searchTerm={searchTerm}
