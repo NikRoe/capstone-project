@@ -5,25 +5,27 @@ export function SeriesRating({ series }) {
   if (series.vote_count !== 0) {
     if (series.vote_average >= 7.5) {
       return (
-        <StyledRating>
-          ({series.vote_average} &frasl; 10)
+        <>
+          <StyledRating>({series.vote_average} &frasl; 10)</StyledRating>
           <SeriesVoteCount series={series} />
-        </StyledRating>
+        </>
       );
     } else if (series.vote_average >= 5) {
       return (
-        <StyledRating inputColor="orange">
-          ({series.vote_average} &frasl; 10)
+        <>
+          <StyledRating inputColor="orange">
+            ({series.vote_average} &frasl; 10)
+          </StyledRating>
           <SeriesVoteCount series={series} />
-        </StyledRating>
+        </>
       );
     } else {
       return (
         <>
           <StyledRating inputColor="#FF5E4F">
             ({series.vote_average} &frasl; 10)
-            <SeriesVoteCount series={series} />
           </StyledRating>
+          <SeriesVoteCount series={series} />
         </>
       );
     }

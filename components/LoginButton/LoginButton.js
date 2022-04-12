@@ -6,9 +6,9 @@ export default function LoginButton() {
   if (session) {
     return (
       <StyledDiv>
-        <span>
+        <p>
           Signed in as <strong>{session.user.name}</strong>
-        </span>
+        </p>
         <StyledButton onClick={() => signOut()}>Sign out</StyledButton>
       </StyledDiv>
     );
@@ -28,6 +28,7 @@ const StyledButton = styled.button`
   padding: 1rem;
   border-radius: 15px;
   border: none;
+  cursor: pointer;
 `;
 
 const StyledInfoText = styled.p`
@@ -36,7 +37,7 @@ const StyledInfoText = styled.p`
 
 const StyledDiv = styled.div`
   display: flex;
-  width: 95vw;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
 `;
