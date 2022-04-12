@@ -23,6 +23,7 @@ export default function LoginButton() {
 const StyledButton = styled.button`
   background-color: var(--main-callToAction-background-color);
   padding: 1rem;
+  border: none;
 `;
 
 const StyledInfoText = styled.p`

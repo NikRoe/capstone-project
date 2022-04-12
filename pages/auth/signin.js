@@ -1,6 +1,7 @@
 import { getProviders, getSession, signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import styled from "styled-components";
 
 export default function SignIn({ providers }) {
   const { data: session } = useSession();
@@ -14,16 +15,15 @@ export default function SignIn({ providers }) {
   return (
     <>
       <h1 style={{ marginBottom: "2rem" }}>Sign In 🚀</h1>
-      {Object.values(providers).map((provider) => (
-        <div key={provider.name}>
-          <button
-            onClick={() => signIn(provider.id)}
-            style={{ backgroundColor: "lightgray" }}
-          >
-            Sign in with {provider.name}
-          </button>
-        </div>
-      ))}
+      <StyledDiv>
+        {Object.values(providers).map((provider) => (
+          <div key={provider.name}>
+            <StyledButton onClick={() => signIn(provider.id)}>
+              Sign in with {provider.name}
+            </StyledButton>
+          </div>
+        ))}
+      </StyledDiv>
     </>
   );
 }
@@ -36,3 +36,18 @@ export async function getServerSideProps(context) {
     props: { providers },
   };
 }
+
+const StyledButton = styled.button`
+  background-color: var(--main-callToAction-background-color);
+  padding: 1rem;
+  border: none;
+`;
+
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+`;

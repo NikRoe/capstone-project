@@ -77,15 +77,3 @@ const styledCollapsible = styled.div`
   cursor: pointer;
   color: var(--button-text-color);
 `;
-
-const StyledDiv = styled.div`
-  display: flex;
-  padding: 0.4rem;
-  align-items: center;
-  font-size: smaller;
-
-  > input {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-`;
