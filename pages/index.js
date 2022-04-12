@@ -20,7 +20,7 @@ export default function Home() {
       </Head>
       <div role={"main"}>
         <LoginButton />
-        <h1>Seriesly!</h1>
+        <h1>Seriesly</h1>
         {data ? (
           <StyledDiv>
             {data.data.results.map((series) => (
