@@ -5,9 +5,12 @@ export default function LoginButton() {
   const { data: session } = useSession();
   if (session) {
     return (
-      <div>
+      <StyledDiv>
+        <span>
+          Signed in as <strong>{session.user.name}</strong>
+        </span>
         <StyledButton onClick={() => signOut()}>Sign out</StyledButton>
-      </div>
+      </StyledDiv>
     );
   }
   return (
@@ -23,9 +26,17 @@ export default function LoginButton() {
 const StyledButton = styled.button`
   background-color: var(--main-callToAction-background-color);
   padding: 1rem;
+  border-radius: 15px;
   border: none;
 `;
 
 const StyledInfoText = styled.p`
   font-size: small;
+`;
+
+const StyledDiv = styled.div`
+  display: flex;
+  width: 95vw;
+  justify-content: space-between;
+  align-items: center;
 `;
