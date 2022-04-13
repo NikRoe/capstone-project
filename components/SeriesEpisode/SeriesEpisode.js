@@ -1,14 +1,26 @@
 import styled from "styled-components";
 
-export function SeriesEpisode({ episode, handleChange, isWatched }) {
+export function SeriesEpisode({
+  episode,
+  isWatched,
+  removeEpisodeHandler,
+  addEpisodeHandler,
+}) {
+  let isOnList;
+  isWatched ? (isOnList = isWatched.includes(episode.id)) : null;
+
   return (
     <StyledDiv>
       <input
         type="checkbox"
         id={episode.name}
         name={episode.name}
-        onChange={() => handleChange(episode.id)}
-        checked={isWatched.includes(episode.id)}
+        onChange={
+          isOnList
+            ? () => removeEpisodeHandler(episode.id)
+            : () => addEpisodeHandler(episode.id)
+        }
+        checked={isOnList}
         value={episode.name}
       />
       <label htmlFor={episode.name}>{episode.name}</label>

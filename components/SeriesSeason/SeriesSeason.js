@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
 import Collapsible from "react-collapsible";
 import styled from "styled-components";
 import useSWR from "swr";
@@ -7,43 +7,55 @@ import { SeriesEpisode } from "../SeriesEpisode/SeriesEpisode";
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
-function getLocalStorage(key) {
-  const ISSERVER = typeof window === "undefined";
-  if (!ISSERVER) {
-    return JSON.parse(localStorage.getItem(key));
-  }
-}
-
-function setLocalStorage(key, value) {
-  return localStorage.setItem(key, JSON.stringify(value));
-}
-
 export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
   const seasonNumber = season.name.split(" ")[1];
   const router = useRouter();
   const { id } = router.query;
-
-  const [isWatched, setIsWatched] = useState(
-    () => getLocalStorage("isWatched") ?? []
-  );
 
   const { data, error } = useSWR(
     `/api/getSeriesById/${id}/${seasonNumber}`,
     fetcher
   );
 
-  useEffect(() => {
-    setLocalStorage("isWatched", isWatched);
-  }, [isWatched]);
+  const { data: isWatched } = useSWR(`/api/watchedEpisodes`, fetcher);
 
-  function handleChange(episodeId) {
-    if (isWatched.some((entry) => entry === episodeId)) {
-      setIsWatched(isWatched.filter((entry) => entry !== episodeId));
+  console.log(isWatched);
+
+  async function addEpisodeHandler(episodeId) {
+    handleEpisodeEdit(episodeId);
+    if (isWatching.some((entry) => entry.id === series.id) === false) {
+      addSeriesHandler(series);
+    }
+  }
+
+  async function removeEpisodeHandler(episodeId) {
+    handleEpisodeDelete(episodeId);
+  }
+
+  async function handleEpisodeEdit(episodeId) {
+    const response = await fetch(`/api/watchedEpisodes/${episodeId}`, {
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ id: episodeId }),
+    });
+    const createdSeries = await response.json();
+    if (response.ok) {
+      alert("it worked!");
     } else {
-      setIsWatched([...isWatched, episodeId]);
-      if (isWatching.some((entry) => entry.id === series.id) === false) {
-        addSeriesHandler(series);
-      }
+      alert("Something went wrong");
+    }
+  }
+
+  async function handleEpisodeDelete(episodeId) {
+    const response = await fetch(`/api/watchedEpisodes/${episodeId}`, {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ id: episodeId }),
+    });
+    if (response.ok) {
+      alert("it worked!");
+    } else {
+      alert("Something went wrong");
     }
   }
 
@@ -58,8 +70,9 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
             <SeriesEpisode
               key={episode.id}
               episode={episode}
-              handleChange={handleChange}
               isWatched={isWatched}
+              addEpisodeHandler={addEpisodeHandler}
+              removeEpisodeHandler={removeEpisodeHandler}
             />
           ))}
         </Collapsible>
