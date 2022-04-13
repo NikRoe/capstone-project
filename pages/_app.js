@@ -5,7 +5,11 @@ import { GlobalStyle } from "../components/GlobalStyle/GlobalStyle";
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
-  const { data: isWatching, error } = useSWR(`/api/watchedSeries`, fetcher);
+  const {
+    data: isWatching,
+    error,
+    mutate,
+  } = useSWR(`/api/watchedSeries`, fetcher);
 
   async function addSeriesHandler(series) {
     handleSeriesEdit(series);
@@ -23,7 +27,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     });
     const createdSeries = await response.json();
     if (response.ok) {
-      alert("it worked!");
+      mutate();
     } else {
       alert("Something went wrong");
     }
@@ -36,7 +40,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       body: JSON.stringify({ series: series }),
     });
     if (response.ok) {
-      alert("it worked!");
+      mutate();
     } else {
       alert("Something went wrong");
     }
