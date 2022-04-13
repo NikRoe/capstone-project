@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 
   async function addSeriesHandler(series) {
     setIsWatching([series, ...isWatching]);
-    handleCreate(series);
+    handleEdit(series);
   }
 
   function removeSeriesHandler(series) {
@@ -32,9 +32,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     setLocalStorage("isWatching", isWatching);
   }, [isWatching]);
 
-  async function handleCreate(series) {
-    const response = await fetch("/api/watchedSeries", {
-      method: "POST",
+  async function handleEdit(series) {
+    const response = await fetch(`/api/watchedSeries/${series.id}`, {
+      method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ series: series.id }),
     });
@@ -49,6 +49,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   async function handleDelete(series) {
     const response = await fetch(`/api/watchedSeries/${series.id}`, {
       method: "DELETE",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ series: series.id }),
     });
     if (response.ok) {
       console.log("it worked");

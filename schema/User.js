@@ -5,6 +5,8 @@ const userSchema = new Schema(
     name: { type: String },
     image: { type: String },
     email: { type: String },
+    watchedEpisodes: [],
+    watchedSeries: [],
   },
   { timestamps: true }
 );

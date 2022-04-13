@@ -3,7 +3,7 @@ import "./User";
 
 const watchedSeriesSchema = new Schema(
   {
-    series: { type: Number },
+    series: [],
     userId: { type: Schema.Types.ObjectId, ref: "User" },
   },
   { timestamps: true }

@@ -3,6 +3,8 @@ import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "../../../lib/mongodb";
+import { connectDb } from "../../../lib/db";
+import User from "../../../schema/User";
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -19,6 +21,13 @@ export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
   callbacks: {
     async session({ session, user, token }) {
+      connectDb();
+      const currentUser = await User.findById(user.id);
+      if (currentUser.watchedSeries == null) {
+        currentUser.watchedSeries = [];
+        currentUser.watchedEpisodes = [];
+        currentUser.save();
+      }
       return { ...session, user: { ...session.user, id: user.id } };
     },
   },

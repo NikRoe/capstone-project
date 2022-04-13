@@ -1,11 +1,8 @@
 import { getSession } from "next-auth/react";
-import WatchedSeries from "../../../schema/WatchedSeries";
 import { connectDb } from "../../../lib/db";
+import User from "../../../schema/User";
 
 export default async function handler(request, response) {
-  const { watchedSeriesId } = request.query;
-  console.log(watchedSeriesId);
-
   try {
     connectDb();
 
@@ -13,14 +10,9 @@ export default async function handler(request, response) {
 
     switch (request.method) {
       case "PATCH":
-        // patch the correct joke
-        const updatedSeries = await WatchedSeries.findByIdAndUpdate(
-          watchedSeriesId,
-          {
-            $push: request.body,
-          },
-          { returnDocument: "after", runValidators: true }
-        ).where({ userId: session.user.id });
+        const updatedSeries = await User.updateOne({
+          $push: { watchedSeries: request.body },
+        }).where({ userId: session.user.id });
 
         if (updatedSeries) {
           response.status(200).json({
@@ -34,10 +26,9 @@ export default async function handler(request, response) {
         break;
 
       case "DELETE":
-        const deletedSeries = await WatchedSeries.deleteMany({
-          userId: session.user.id,
-          series: watchedSeriesId,
-        });
+        const deletedSeries = await User.updateOne({
+          $pull: { watchedSeries: request.body },
+        }).where({ userId: session.user.id });
 
         if (deletedSeries) {
           response.status(200).json({
