@@ -1,34 +1,50 @@
 import { SessionProvider } from "next-auth/react";
-import { useEffect, useState } from "react";
+import useSWR from "swr";
 import { GlobalStyle } from "../components/GlobalStyle/GlobalStyle";
 
-function getLocalStorage(key) {
-  const ISSERVER = typeof window === "undefined";
-  if (!ISSERVER) {
-    return JSON.parse(localStorage.getItem(key));
-  }
-}
-
-function setLocalStorage(key, value) {
-  return localStorage.setItem(key, JSON.stringify(value));
-}
+const fetcher = (url) => fetch(url).then((response) => response.json());
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
-  const [isWatching, setIsWatching] = useState(
-    () => getLocalStorage("isWatching") ?? []
-  );
+  const {
+    data: isWatching,
+    error,
+    mutate,
+  } = useSWR(`/api/watchedSeries`, fetcher);
 
-  function addSeriesHandler(series) {
-    setIsWatching([series, ...isWatching]);
+  async function addSeriesHandler(series) {
+    handleSeriesEdit(series);
   }
 
   function removeSeriesHandler(series) {
-    setIsWatching(isWatching.filter((entry) => entry.id !== series.id));
+    handleSeriesDelete(series);
   }
 
-  useEffect(() => {
-    setLocalStorage("isWatching", isWatching);
-  }, [isWatching]);
+  async function handleSeriesEdit(series) {
+    const response = await fetch(`/api/watchedSeries/${series.id}`, {
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ series: series }),
+    });
+    const createdSeries = await response.json();
+    if (response.ok) {
+      mutate();
+    } else {
+      alert("Something went wrong");
+    }
+  }
+
+  async function handleSeriesDelete(series) {
+    const response = await fetch(`/api/watchedSeries/${series.id}`, {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ series: series }),
+    });
+    if (response.ok) {
+      mutate();
+    } else {
+      alert("Something went wrong");
+    }
+  }
 
   return (
     <>

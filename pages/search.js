@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import useSWR from "swr";
+import LoginButton from "../components/LoginButton/LoginButton";
 import { Navbar } from "../components/Navbar/Navbar";
 import { FetchSearchForm } from "../components/SearchForms/FetchSearchForm";
 
@@ -24,6 +25,7 @@ export default function Search() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div role={"main"}>
+        <LoginButton />
         <h1>Search</h1>
         <FetchSearchForm
           searchTermHandler={searchTermHandler}

@@ -9,6 +9,7 @@ export function SeriesCard({ series }) {
   function clipTextLength(str, n) {
     return str.length > n ? str.substring(0, n - 1) + "..." : str;
   }
+
   return (
     <StyledSection>
       <SeriesImage series={series} />
