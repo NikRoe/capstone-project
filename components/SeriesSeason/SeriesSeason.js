@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-//import { useEffect, useState } from "react";
 import Collapsible from "react-collapsible";
 import styled from "styled-components";
 import useSWR from "swr";
@@ -17,9 +16,7 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
     fetcher
   );
 
-  const { data: isWatched } = useSWR(`/api/watchedEpisodes`, fetcher);
-
-  console.log(isWatched);
+  const { data: isWatched, mutate } = useSWR(`/api/watchedEpisodes`, fetcher);
 
   async function addEpisodeHandler(episodeId) {
     handleEpisodeEdit(episodeId);
@@ -41,6 +38,7 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
     const createdSeries = await response.json();
     if (response.ok) {
       alert("it worked!");
+      mutate();
     } else {
       alert("Something went wrong");
     }
@@ -54,6 +52,7 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
     });
     if (response.ok) {
       alert("it worked!");
+      mutate();
     } else {
       alert("Something went wrong");
     }
