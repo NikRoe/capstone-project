@@ -4,6 +4,7 @@ import { Delayed } from "../lib/Delayed";
 import { search } from "fast-fuzzy";
 import { useState } from "react";
 import { FuzzySearchForm } from "../components/SearchForms/FuzzySearchForm";
+import LoginButton from "../components/LoginButton/LoginButton";
 
 export default function CurrentlyWatching({ isWatching }) {
   const [searchList, setSearchList] = useState("");
@@ -23,6 +24,7 @@ export default function CurrentlyWatching({ isWatching }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div role={"main"}>
+        <LoginButton />
         <h1>Currently Watching</h1>
         {isWatching.length === 0 ? (
           <p>
