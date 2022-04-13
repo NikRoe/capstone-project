@@ -12,7 +12,7 @@ export default async function handler(request, response) {
       case "PATCH":
         const updatedSeries = await User.updateOne({
           $push: { watchedSeries: request.body.series },
-        }).where({ userId: session.user.id });
+        }).where({ _id: session.user.id });
 
         if (updatedSeries) {
           response.status(200).json({
@@ -28,7 +28,7 @@ export default async function handler(request, response) {
       case "DELETE":
         const deletedSeries = await User.updateOne({
           $pull: { watchedSeries: request.body.series },
-        }).where({ userId: session.user.id });
+        }).where({ _id: session.user.id });
 
         if (deletedSeries) {
           response.status(200).json({

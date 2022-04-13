@@ -14,7 +14,7 @@ export default async function handler(request, response) {
           const user = await User.find()
             .sort({ createdAt: -1 })
             .limit(100)
-            .where({ userId: session.user.id });
+            .where({ _id: session.user.id });
           response.status(200).json(user[0].watchedSeries);
         } else {
           response.status(401).json({ error: "Not authenticated" });

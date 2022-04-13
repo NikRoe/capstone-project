@@ -11,7 +11,7 @@ export default async function handler(request, response) {
     switch (request.method) {
       case "GET":
         if (session) {
-          const user = await User.find().where({ userId: session.user.id });
+          const user = await User.find().where({ _id: session.user.id });
           response.status(200).json(user[0].watchedEpisodes);
         } else {
           response.status(401).json({ error: "Not authenticated" });
