@@ -7,8 +7,6 @@ const fetcher = (url) => fetch(url).then((response) => response.json());
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const { data: isWatching, error } = useSWR(`/api/watchedSeries`, fetcher);
 
-  console.log(isWatching);
-
   async function addSeriesHandler(series) {
     handleSeriesEdit(series);
   }

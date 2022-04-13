@@ -1,3 +1,4 @@
+import { useSession } from "next-auth/react";
 import styled from "styled-components";
 
 export function SeriesEpisode({
@@ -6,8 +7,12 @@ export function SeriesEpisode({
   removeEpisodeHandler,
   addEpisodeHandler,
 }) {
-  let isOnList;
-  isWatched ? (isOnList = isWatched.includes(episode.id)) : null;
+  let isOnList = false;
+  const { data: session } = useSession();
+
+  if (session) {
+    isWatched ? (isOnList = isWatched.includes(episode.id)) : null;
+  }
 
   return (
     <StyledDiv>

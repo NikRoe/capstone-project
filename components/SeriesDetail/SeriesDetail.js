@@ -1,6 +1,6 @@
+import { useSession } from "next-auth/react";
 import styled from "styled-components";
 import { ClickButton } from "../ClickButton/ClickButton";
-import { SeriesExtraInfo } from "../SeriesExtraInfo/SeriesExtraInfo";
 import { SeriesImage } from "../SeriesImage/SeriesImage";
 import { SeriesSeason } from "../SeriesSeason/SeriesSeason";
 import { SeriesText } from "../SeriesText/SeriesText";
@@ -12,14 +12,17 @@ export function SeriesDetail({
   removeSeriesHandler,
   isWatching,
 }) {
+  const { data: session } = useSession();
   let isActive = false;
 
   function checkIfSeriesIsOnList(series) {
-    if (isWatching) {
-      if (isWatching.some((entry) => entry.id === series.id)) {
-        isActive = true;
-      } else {
-        isActive = false;
+    if (session) {
+      if (isWatching) {
+        if (isWatching.some((entry) => entry.id === series.id)) {
+          isActive = true;
+        } else {
+          isActive = false;
+        }
       }
     }
   }

@@ -37,7 +37,6 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
     });
     const createdSeries = await response.json();
     if (response.ok) {
-      alert("it worked!");
       mutate();
     } else {
       alert("Something went wrong");
@@ -51,7 +50,6 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
       body: JSON.stringify({ id: episodeId }),
     });
     if (response.ok) {
-      alert("it worked!");
       mutate();
     } else {
       alert("Something went wrong");
