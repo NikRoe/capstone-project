@@ -6,6 +6,7 @@ export function SeriesEpisode({
   isWatched,
   removeEpisodeHandler,
   addEpisodeHandler,
+  isEditing,
 }) {
   let isOnList = false;
   const { data: session } = useSession();
@@ -27,6 +28,7 @@ export function SeriesEpisode({
         }
         checked={isOnList}
         value={episode.name}
+        disabled={isEditing}
       />
       <label htmlFor={episode.name}>{episode.name}</label>
     </StyledDiv>

@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 import Collapsible from "react-collapsible";
 import styled from "styled-components";
 import useSWR from "swr";
@@ -18,15 +19,19 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
 
   const { data: isWatched, mutate } = useSWR(`/api/watchedEpisodes`, fetcher);
 
+  const [isEditing, setIsEditing] = useState(false);
+
   async function addEpisodeHandler(episodeId) {
     handleEpisodeEdit(episodeId);
     if (isWatching.some((entry) => entry.id === series.id) === false) {
       addSeriesHandler(series);
     }
+    setIsEditing(true);
   }
 
   async function removeEpisodeHandler(episodeId) {
     handleEpisodeDelete(episodeId);
+    setIsEditing(true);
   }
 
   async function handleEpisodeEdit(episodeId) {
@@ -38,6 +43,7 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
     const createdSeries = await response.json();
     if (response.ok) {
       mutate();
+      setIsEditing(false);
     } else {
       alert("Something went wrong");
     }
@@ -51,6 +57,7 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
     });
     if (response.ok) {
       mutate();
+      setIsEditing(false);
     } else {
       alert("Something went wrong");
     }
@@ -70,6 +77,7 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
               isWatched={isWatched}
               addEpisodeHandler={addEpisodeHandler}
               removeEpisodeHandler={removeEpisodeHandler}
+              isEditing={isEditing}
             />
           ))}
         </Collapsible>
