@@ -15,10 +15,12 @@ export function SeriesDetail({
   let isActive = false;
 
   function checkIfSeriesIsOnList(series) {
-    if (isWatching.some((entry) => entry.id === series.id)) {
-      isActive = true;
-    } else {
-      isActive = false;
+    if (isWatching) {
+      if (isWatching.some((entry) => entry.id === series.id)) {
+        isActive = true;
+      } else {
+        isActive = false;
+      }
     }
   }
 

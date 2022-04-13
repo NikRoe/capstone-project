@@ -1,39 +1,37 @@
 import { getSession } from "next-auth/react";
-import WatchedSeries from "../../../schema/WatchedSeries";
 import { connectDb } from "../../../lib/db";
+import User from "../../../schema/User";
 
 export default async function handler(request, response) {
   try {
     connectDb();
 
     const session = await getSession({ req: request });
-    console.log(session);
 
     switch (request.method) {
       case "GET":
         if (session) {
-          const series = await WatchedSeries.find()
+          const user = await User.find()
             .sort({ createdAt: -1 })
             .limit(100)
-            .where({ userId: session.user.id })
-            .populate("userId");
-          response.status(200).json(series);
+            .where({ userId: session.user.id });
+          response.status(200).json(user[0].watchedSeries);
         } else {
           response.status(401).json({ error: "Not authenticated" });
         }
         break;
 
-      case "POST":
-        if (session) {
-          const createdSeries = await WatchedSeries.create({
-            ...request.body,
-            userId: session.user.id,
-          });
-          response.status(200).json({ success: true, data: createdSeries });
-        } else {
-          response.status(401).json({ error: "Not authenticated" });
-        }
-        break;
+      // case "POST":
+      //   if (session) {
+      //     const createdSeries = await WatchedSeries.create({
+      //       ...request.body,
+      //       userId: session.user.id,
+      //     });
+      //     response.status(200).json({ success: true, data: createdSeries });
+      //   } else {
+      //     response.status(401).json({ error: "Not authenticated" });
+      //   }
+      //   break;
 
       default:
         console.log("request method was neither GET or POST");

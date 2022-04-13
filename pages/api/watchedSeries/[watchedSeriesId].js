@@ -11,7 +11,7 @@ export default async function handler(request, response) {
     switch (request.method) {
       case "PATCH":
         const updatedSeries = await User.updateOne({
-          $push: { watchedSeries: request.body },
+          $push: { watchedSeries: request.body.series },
         }).where({ userId: session.user.id });
 
         if (updatedSeries) {
@@ -27,7 +27,7 @@ export default async function handler(request, response) {
 
       case "DELETE":
         const deletedSeries = await User.updateOne({
-          $pull: { watchedSeries: request.body },
+          $pull: { watchedSeries: request.body.series },
         }).where({ userId: session.user.id });
 
         if (deletedSeries) {
