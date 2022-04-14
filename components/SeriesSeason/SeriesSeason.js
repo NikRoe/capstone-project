@@ -19,50 +19,6 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
 
   const { data: isWatched, mutate } = useSWR(`/api/watchedEpisodes`, fetcher);
 
-  const [isEditing, setIsEditing] = useState(false);
-
-  async function addEpisodeHandler(episodeId) {
-    handleEpisodeEdit(episodeId);
-    if (isWatching.some((entry) => entry.id === series.id) === false) {
-      addSeriesHandler(series);
-    }
-    setIsEditing(true);
-  }
-
-  async function removeEpisodeHandler(episodeId) {
-    handleEpisodeDelete(episodeId);
-    setIsEditing(true);
-  }
-
-  async function handleEpisodeEdit(episodeId) {
-    const response = await fetch(`/api/watchedEpisodes/${episodeId}`, {
-      method: "PATCH",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ id: episodeId }),
-    });
-    const createdSeries = await response.json();
-    if (response.ok) {
-      mutate();
-      setIsEditing(false);
-    } else {
-      alert("Something went wrong");
-    }
-  }
-
-  async function handleEpisodeDelete(episodeId) {
-    const response = await fetch(`/api/watchedEpisodes/${episodeId}`, {
-      method: "DELETE",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ id: episodeId }),
-    });
-    if (response.ok) {
-      mutate();
-      setIsEditing(false);
-    } else {
-      alert("Something went wrong");
-    }
-  }
-
   return (
     <>
       {data ? (
@@ -75,9 +31,10 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
               key={episode.id}
               episode={episode}
               isWatched={isWatched}
-              addEpisodeHandler={addEpisodeHandler}
-              removeEpisodeHandler={removeEpisodeHandler}
-              isEditing={isEditing}
+              mutate={mutate}
+              isWatching={isWatching}
+              addSeriesHandler={addSeriesHandler}
+              series={series}
             />
           ))}
         </Collapsible>
