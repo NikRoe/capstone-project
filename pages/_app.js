@@ -1,4 +1,5 @@
 import { SessionProvider } from "next-auth/react";
+import { useState } from "react";
 import useSWR from "swr";
 import { GlobalStyle } from "../components/GlobalStyle/GlobalStyle";
 
@@ -11,11 +12,15 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     mutate,
   } = useSWR(`/api/watchedSeries`, fetcher);
 
+  const [seriesIsEditing, setSeriesIsEditing] = useState(false);
+
   async function addSeriesHandler(series) {
+    setSeriesIsEditing(true);
     handleSeriesEdit(series);
   }
 
   function removeSeriesHandler(series) {
+    setSeriesIsEditing(true);
     handleSeriesDelete(series);
   }
 
@@ -27,6 +32,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     });
     const createdSeries = await response.json();
     if (response.ok) {
+      setSeriesIsEditing(false);
       mutate();
     } else {
       alert("Something went wrong");
@@ -40,6 +46,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
       body: JSON.stringify({ series: series }),
     });
     if (response.ok) {
+      setSeriesIsEditing(false);
       mutate();
     } else {
       alert("Something went wrong");
@@ -55,6 +62,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           addSeriesHandler={addSeriesHandler}
           removeSeriesHandler={removeSeriesHandler}
           isWatching={isWatching}
+          seriesIsEditing={seriesIsEditing}
         />
       </SessionProvider>
     </>
