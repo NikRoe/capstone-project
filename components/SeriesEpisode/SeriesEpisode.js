@@ -1,17 +1,64 @@
 import { useSession } from "next-auth/react";
+import { useState } from "react";
 import styled from "styled-components";
 
 export function SeriesEpisode({
   episode,
   isWatched,
-  removeEpisodeHandler,
-  addEpisodeHandler,
+  mutate,
+  isWatching,
+  addSeriesHandler,
+  series,
 }) {
+  const [isEditing, setIsEditing] = useState(false);
+
   let isOnList = false;
   const { data: session } = useSession();
 
   if (session) {
     isWatched ? (isOnList = isWatched.includes(episode.id)) : null;
+  }
+
+  async function addEpisodeHandler(episodeId) {
+    handleEpisodeEdit(episodeId);
+    if (isWatching.some((entry) => entry.id === series.id) === false) {
+      addSeriesHandler(series);
+    }
+    setIsEditing(true);
+  }
+
+  async function removeEpisodeHandler(episodeId) {
+    handleEpisodeDelete(episodeId);
+    setIsEditing(true);
+  }
+
+  async function handleEpisodeEdit(episodeId) {
+    const response = await fetch(`/api/watchedEpisodes/${episodeId}`, {
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ id: episodeId }),
+    });
+    const createdSeries = await response.json();
+    if (response.ok) {
+      mutate();
+      setIsEditing(false);
+    } else {
+      alert("Something went wrong");
+    }
+  }
+
+  async function handleEpisodeDelete(episodeId) {
+    const response = await fetch(`/api/watchedEpisodes/${episodeId}`, {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ id: episodeId }),
+    });
+    if (response.ok) {
+      mutate();
+      setIsEditing(false);
+    } else {
+      alert("Something went wrong");
+    }
   }
 
   return (
@@ -27,6 +74,7 @@ export function SeriesEpisode({
         }
         checked={isOnList}
         value={episode.name}
+        disabled={isEditing}
       />
       <label htmlFor={episode.name}>{episode.name}</label>
     </StyledDiv>

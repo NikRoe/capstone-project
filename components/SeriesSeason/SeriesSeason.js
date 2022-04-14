@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 import Collapsible from "react-collapsible";
 import styled from "styled-components";
 import useSWR from "swr";
@@ -18,44 +19,6 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
 
   const { data: isWatched, mutate } = useSWR(`/api/watchedEpisodes`, fetcher);
 
-  async function addEpisodeHandler(episodeId) {
-    handleEpisodeEdit(episodeId);
-    if (isWatching.some((entry) => entry.id === series.id) === false) {
-      addSeriesHandler(series);
-    }
-  }
-
-  async function removeEpisodeHandler(episodeId) {
-    handleEpisodeDelete(episodeId);
-  }
-
-  async function handleEpisodeEdit(episodeId) {
-    const response = await fetch(`/api/watchedEpisodes/${episodeId}`, {
-      method: "PATCH",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ id: episodeId }),
-    });
-    const createdSeries = await response.json();
-    if (response.ok) {
-      mutate();
-    } else {
-      alert("Something went wrong");
-    }
-  }
-
-  async function handleEpisodeDelete(episodeId) {
-    const response = await fetch(`/api/watchedEpisodes/${episodeId}`, {
-      method: "DELETE",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ id: episodeId }),
-    });
-    if (response.ok) {
-      mutate();
-    } else {
-      alert("Something went wrong");
-    }
-  }
-
   return (
     <>
       {data ? (
@@ -68,8 +31,10 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
               key={episode.id}
               episode={episode}
               isWatched={isWatched}
-              addEpisodeHandler={addEpisodeHandler}
-              removeEpisodeHandler={removeEpisodeHandler}
+              mutate={mutate}
+              isWatching={isWatching}
+              addSeriesHandler={addSeriesHandler}
+              series={series}
             />
           ))}
         </Collapsible>
