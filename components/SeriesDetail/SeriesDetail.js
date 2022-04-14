@@ -11,6 +11,7 @@ export function SeriesDetail({
   addSeriesHandler,
   removeSeriesHandler,
   isWatching,
+  seriesIsEditing,
 }) {
   const { data: session } = useSession();
   let isActive = false;
@@ -48,6 +49,7 @@ export function SeriesDetail({
             ? "Remove from currently watching"
             : "Add to currently watching"
         }
+        seriesIsEditing={seriesIsEditing}
       />
       <StyledSeasonWrapper>
         {series.seasons

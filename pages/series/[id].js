@@ -12,6 +12,7 @@ export default function DetailPage({
   addSeriesHandler,
   removeSeriesHandler,
   isWatching,
+  seriesIsEditing,
 }) {
   const router = useRouter();
   const { id } = router.query;
@@ -37,6 +38,7 @@ export default function DetailPage({
             addSeriesHandler={addSeriesHandler}
             removeSeriesHandler={removeSeriesHandler}
             isWatching={isWatching}
+            seriesIsEditing={seriesIsEditing}
           />
         </StyledDiv>
       ) : (
