@@ -18,7 +18,7 @@ const customStyles = {
 
 Modal.setAppElement("#__next");
 
-export function LoginModal({ specifyingText, defaultName }) {
+export function LoginModal({ specifyingText, defaultName, isForEpisode }) {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -31,7 +31,11 @@ export function LoginModal({ specifyingText, defaultName }) {
 
   return (
     <>
-      <ClickButton handleButtonClick={openModal} defaultName={defaultName} />
+      <ClickButton
+        handleButtonClick={openModal}
+        defaultName={defaultName}
+        isForEpisode={isForEpisode}
+      />
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

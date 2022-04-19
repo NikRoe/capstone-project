@@ -90,6 +90,7 @@ export function SeriesEpisode({
             name={episode.name}
             value={episode.name}
             specifyingText={"track your marked episodes as watched"}
+            isForEpisode={true}
           />
           <label htmlFor={episode.name}>{episode.name}</label>
         </StyledDiv>
