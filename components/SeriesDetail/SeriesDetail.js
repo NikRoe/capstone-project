@@ -1,6 +1,7 @@
 import { useSession } from "next-auth/react";
 import styled from "styled-components";
 import { ClickButton } from "../ClickButton/ClickButton";
+import { LoginModal } from "../LoginModal/LoginModal";
 import { SeriesImage } from "../SeriesImage/SeriesImage";
 import { SeriesSeason } from "../SeriesSeason/SeriesSeason";
 import { SeriesText } from "../SeriesText/SeriesText";
@@ -41,16 +42,23 @@ export function SeriesDetail({
       <StyledDiv>
         <SeriesText series={series} />
       </StyledDiv>
-      <ClickButton
-        handleButtonClick={isActive ? removeSeriesHandler : addSeriesHandler}
-        series={series}
-        defaultName={
-          isActive
-            ? "Remove from currently watching"
-            : "Add to currently watching"
-        }
-        seriesIsEditing={seriesIsEditing}
-      />
+      {session ? (
+        <ClickButton
+          handleButtonClick={isActive ? removeSeriesHandler : addSeriesHandler}
+          series={series}
+          defaultName={
+            isActive
+              ? "Remove from currently watching"
+              : "Add to currently watching"
+          }
+          seriesIsEditing={seriesIsEditing}
+        />
+      ) : (
+        <LoginModal
+          specifyingText={"add series to your watching list"}
+          defaultName={"Add to currently watching"}
+        />
+      )}
       <StyledSeasonWrapper>
         {series.seasons
           .filter((season) => season.name !== "Specials")
@@ -104,4 +112,15 @@ const StyledSeasonWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.5rem;
+`;
+
+const StyledButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+`;
+
+const StyledModalDiv = styled.div`
+  color: var(--main-text-color);
 `;

@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
 import Collapsible from "react-collapsible";
 import styled from "styled-components";
 import useSWR from "swr";
@@ -8,7 +7,7 @@ import { SeriesEpisode } from "../SeriesEpisode/SeriesEpisode";
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
-  const seasonNumber = season.name.split(" ")[1];
+  const seasonNumber = season.season_number;
   const router = useRouter();
   const { id } = router.query;
 

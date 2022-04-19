@@ -19,7 +19,11 @@ export default function Home() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div role={"main"}>
-        <LoginButton />
+        <LoginButton
+          buttonExtraText={
+            "Log in to save your favourite series and track your progress"
+          }
+        />
         <h1>Seriesly</h1>
         {data ? (
           <StyledDiv>

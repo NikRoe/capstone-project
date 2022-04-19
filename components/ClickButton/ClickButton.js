@@ -5,24 +5,41 @@ export function ClickButton({
   series,
   defaultName,
   seriesIsEditing,
+  isForEpisode,
 }) {
   return (
     <>
-      <StyledButton
-        onClick={() => handleButtonClick(series)}
-        disabled={seriesIsEditing}
-      >
-        {defaultName}
-      </StyledButton>
+      {isForEpisode ? (
+        <StyledButtonInput
+          onClick={() => handleButtonClick(series)}
+          disabled={seriesIsEditing}
+        >
+          {defaultName}
+        </StyledButtonInput>
+      ) : (
+        <StyledButton
+          onClick={() => handleButtonClick(series)}
+          disabled={seriesIsEditing}
+        >
+          {defaultName}
+        </StyledButton>
+      )}
     </>
   );
 }
 
 const StyledButton = styled.button`
   background-color: #00adb5;
-  padding: 0.3rem;
+  padding: 0.5rem;
   border-radius: 14px;
   cursor: pointer;
   color: black;
-  border: 0.2rem solid #414141;
+  border: none;
+`;
+
+const StyledButtonInput = styled(StyledButton)`
+  background-color: white;
+  border-radius: 0px;
+  padding: 0.7rem;
+  margin: 0.2rem;
 `;
