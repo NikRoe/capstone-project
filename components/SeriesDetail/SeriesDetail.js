@@ -30,6 +30,10 @@ export function SeriesDetail({
 
   checkIfSeriesIsOnList(series);
 
+  function handleSeriesButtonClickNotLoggedIn() {
+    alert("Log in to save series ");
+  }
+
   return (
     <StyledSection>
       <StyledTopWrap>
@@ -41,16 +45,23 @@ export function SeriesDetail({
       <StyledDiv>
         <SeriesText series={series} />
       </StyledDiv>
-      <ClickButton
-        handleButtonClick={isActive ? removeSeriesHandler : addSeriesHandler}
-        series={series}
-        defaultName={
-          isActive
-            ? "Remove from currently watching"
-            : "Add to currently watching"
-        }
-        seriesIsEditing={seriesIsEditing}
-      />
+      {session ? (
+        <ClickButton
+          handleButtonClick={isActive ? removeSeriesHandler : addSeriesHandler}
+          series={series}
+          defaultName={
+            isActive
+              ? "Remove from currently watching"
+              : "Add to currently watching"
+          }
+          seriesIsEditing={seriesIsEditing}
+        />
+      ) : (
+        <ClickButton
+          handleButtonClick={handleSeriesButtonClickNotLoggedIn}
+          defaultName="Add to currently watching"
+        />
+      )}
       <StyledSeasonWrapper>
         {series.seasons
           .filter((season) => season.name !== "Specials")

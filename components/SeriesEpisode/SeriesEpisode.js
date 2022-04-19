@@ -61,24 +61,45 @@ export function SeriesEpisode({
     }
   }
 
-  return (
-    <StyledDiv>
-      <input
-        type="checkbox"
-        id={episode.name}
-        name={episode.name}
-        onChange={
-          isOnList
-            ? () => removeEpisodeHandler(episode.id)
-            : () => addEpisodeHandler(episode.id)
-        }
-        checked={isOnList}
-        value={episode.name}
-        disabled={isEditing}
-      />
-      <label htmlFor={episode.name}>{episode.name}</label>
-    </StyledDiv>
-  );
+  function handleEpisodeButtonClickNotLoggedIn() {
+    alert("Log in to save episode ");
+  }
+
+  if (session) {
+    return (
+      <StyledDiv>
+        <input
+          type="checkbox"
+          id={episode.name}
+          name={episode.name}
+          onChange={
+            isOnList
+              ? () => removeEpisodeHandler(episode.id)
+              : () => addEpisodeHandler(episode.id)
+          }
+          checked={isOnList}
+          value={episode.name}
+          disabled={isEditing}
+        />
+        <label htmlFor={episode.name}>{episode.name}</label>
+      </StyledDiv>
+    );
+  } else {
+    return (
+      <StyledDiv>
+        <input
+          type="checkbox"
+          id={episode.name}
+          name={episode.name}
+          onChange={handleEpisodeButtonClickNotLoggedIn}
+          checked={isOnList}
+          value={episode.name}
+          disabled={isEditing}
+        />
+        <label htmlFor={episode.name}>{episode.name}</label>
+      </StyledDiv>
+    );
+  }
 }
 
 const StyledDiv = styled.div`
