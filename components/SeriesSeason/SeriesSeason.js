@@ -16,8 +16,6 @@ export function SeriesSeason({ season, isWatching, addSeriesHandler, series }) {
     fetcher
   );
 
-  console.log(season);
-
   const { data: isWatched, mutate } = useSWR(`/api/watchedEpisodes`, fetcher);
 
   return (
