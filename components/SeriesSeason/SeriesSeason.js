@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { useState } from "react";
 import Collapsible from "react-collapsible";
 import styled from "styled-components";
 import useSWR from "swr";

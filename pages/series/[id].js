@@ -17,6 +17,8 @@ export default function DetailPage({
   const router = useRouter();
   const { id } = router.query;
 
+  console.log(router.query, "query");
+
   const { data, error } = useSWR(`/api/getSeriesById/${id}`, fetcher);
 
   const { data: session } = useSession();

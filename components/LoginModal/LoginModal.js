@@ -16,7 +16,9 @@ const customStyles = {
   },
 };
 
-export function LoginModal({ specifyingText }) {
+Modal.setAppElement("#__next");
+
+export function LoginModal({ specifyingText, defaultName }) {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function openModal() {
@@ -29,10 +31,7 @@ export function LoginModal({ specifyingText }) {
 
   return (
     <>
-      <ClickButton
-        handleButtonClick={openModal}
-        defaultName={"Add to currently watching"}
-      />
+      <ClickButton handleButtonClick={openModal} defaultName={defaultName} />
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -43,7 +42,7 @@ export function LoginModal({ specifyingText }) {
           <p>You need to be logged in to {specifyingText}</p>
           <StyledButtonWrapper>
             <LoginButton />
-            <StyledButton handleButtonClick={closeModal}>Close</StyledButton>
+            <StyledButton onClick={closeModal}>Close</StyledButton>
           </StyledButtonWrapper>
         </StyledModalDiv>
       </Modal>

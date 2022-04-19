@@ -54,7 +54,10 @@ export function SeriesDetail({
           seriesIsEditing={seriesIsEditing}
         />
       ) : (
-        <LoginModal specifyingText={"add series to your watching list"} />
+        <LoginModal
+          specifyingText={"add series to your watching list"}
+          defaultName={"Add to currently watching"}
+        />
       )}
       <StyledSeasonWrapper>
         {series.seasons
