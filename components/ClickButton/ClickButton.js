@@ -20,9 +20,9 @@ export function ClickButton({
 
 const StyledButton = styled.button`
   background-color: #00adb5;
-  padding: 0.3rem;
+  padding: 0.5rem;
   border-radius: 14px;
   cursor: pointer;
   color: black;
-  border: 0.2rem solid #414141;
+  border: none;
 `;

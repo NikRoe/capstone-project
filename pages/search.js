@@ -25,7 +25,11 @@ export default function Search() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div role={"main"}>
-        <LoginButton />
+        <LoginButton
+          buttonExtraText={
+            "Log in to save your favourite series and track your progress"
+          }
+        />
         <h1>Search</h1>
         <FetchSearchForm
           searchTermHandler={searchTermHandler}

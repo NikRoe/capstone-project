@@ -1,6 +1,7 @@
 import { useSession } from "next-auth/react";
 import styled from "styled-components";
 import { ClickButton } from "../ClickButton/ClickButton";
+import { LoginModal } from "../LoginModal/LoginModal";
 import { SeriesImage } from "../SeriesImage/SeriesImage";
 import { SeriesSeason } from "../SeriesSeason/SeriesSeason";
 import { SeriesText } from "../SeriesText/SeriesText";
@@ -30,10 +31,6 @@ export function SeriesDetail({
 
   checkIfSeriesIsOnList(series);
 
-  function handleSeriesButtonClickNotLoggedIn() {
-    alert("Log in to save series ");
-  }
-
   return (
     <StyledSection>
       <StyledTopWrap>
@@ -57,10 +54,7 @@ export function SeriesDetail({
           seriesIsEditing={seriesIsEditing}
         />
       ) : (
-        <ClickButton
-          handleButtonClick={handleSeriesButtonClickNotLoggedIn}
-          defaultName="Add to currently watching"
-        />
+        <LoginModal specifyingText={"add series to your watching list"} />
       )}
       <StyledSeasonWrapper>
         {series.seasons
@@ -115,4 +109,15 @@ const StyledSeasonWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.5rem;
+`;
+
+const StyledButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+`;
+
+const StyledModalDiv = styled.div`
+  color: var(--main-text-color);
 `;
