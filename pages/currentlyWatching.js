@@ -4,6 +4,7 @@ import { search } from "fast-fuzzy";
 import { useState } from "react";
 import { FuzzySearchForm } from "../components/SearchForms/FuzzySearchForm";
 import LoginButton from "../components/LoginButton/LoginButton";
+import { InformationFooter } from "../components/InformationFooter/InformationFooter";
 
 export default function CurrentlyWatching({ isWatching }) {
   const [searchList, setSearchList] = useState("");
@@ -48,6 +49,7 @@ export default function CurrentlyWatching({ isWatching }) {
             </p>
           )
         ) : null}
+        <InformationFooter />
         <Navbar />
       </div>
     </>
