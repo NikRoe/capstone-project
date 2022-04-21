@@ -1,8 +1,8 @@
 import { useSession } from "next-auth/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import styled from "styled-components";
 import useSWR from "swr";
+import { InformationFooter } from "../../components/InformationFooter/InformationFooter";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { SeriesDetail } from "../../components/SeriesDetail/SeriesDetail";
 
@@ -16,8 +16,6 @@ export default function DetailPage({
 }) {
   const router = useRouter();
   const { id } = router.query;
-
-  console.log(router.query, "query");
 
   const { data, error } = useSWR(`/api/getSeriesById/${id}`, fetcher);
 
@@ -34,7 +32,7 @@ export default function DetailPage({
         </p>
       ) : null}
       {data ? (
-        <StyledDiv>
+        <div>
           <SeriesDetail
             series={data.data}
             addSeriesHandler={addSeriesHandler}
@@ -42,15 +40,12 @@ export default function DetailPage({
             isWatching={isWatching}
             seriesIsEditing={seriesIsEditing}
           />
-        </StyledDiv>
+        </div>
       ) : (
         <div>Loading...</div>
       )}
+      <InformationFooter />
       <Navbar />
     </>
   );
 }
-
-const StyledDiv = styled.div`
-  margin-bottom: 3.5rem;
-`;

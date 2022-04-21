@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import useSWR from "swr";
+import { InformationFooter } from "../components/InformationFooter/InformationFooter";
 import LoginButton from "../components/LoginButton/LoginButton";
 import { Navbar } from "../components/Navbar/Navbar";
 import { FetchSearchForm } from "../components/SearchForms/FetchSearchForm";
@@ -37,6 +38,7 @@ export default function Search() {
           searchTerm={searchTerm}
           placeholder={`e.g. Game of Thrones`}
         />
+        <InformationFooter />
         <Navbar />
       </div>
     </>

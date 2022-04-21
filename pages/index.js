@@ -6,6 +6,7 @@ import { Navbar } from "../components/Navbar/Navbar";
 import Head from "next/head";
 import { getSession } from "next-auth/react";
 import LoginButton from "../components/LoginButton/LoginButton";
+import { InformationFooter } from "../components/InformationFooter/InformationFooter";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
@@ -34,7 +35,7 @@ export default function Home() {
         ) : (
           <div>loading</div>
         )}
-
+        <InformationFooter />
         <Navbar />
       </div>
     </>
@@ -46,7 +47,6 @@ const StyledDiv = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 3.5rem;
 `;
 
 export async function getServerSideProps(context) {
