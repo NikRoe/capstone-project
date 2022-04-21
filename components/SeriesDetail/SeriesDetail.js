@@ -1,5 +1,6 @@
 import { useSession } from "next-auth/react";
 import styled from "styled-components";
+import { BackButton } from "../BackButton/BackButton";
 import { ClickButton } from "../ClickButton/ClickButton";
 import { LoginModal } from "../LoginModal/LoginModal";
 import { SeriesImage } from "../SeriesImage/SeriesImage";
@@ -34,6 +35,7 @@ export function SeriesDetail({
   return (
     <StyledSection>
       <StyledTopWrap>
+        <BackButton />
         <SeriesImage series={series} />
         <StyledLeftTopWrap>
           <SeriesTitle series={series} />
