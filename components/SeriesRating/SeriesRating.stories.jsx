@@ -3,7 +3,7 @@ import React from "react";
 import { SeriesRating } from "./SeriesRating";
 
 export default {
-  title: "Components/SeriesRating",
+  title: "Components/SeriesCard/SubElements",
   component: SeriesRating,
 };
 

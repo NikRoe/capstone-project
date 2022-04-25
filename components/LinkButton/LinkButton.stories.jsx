@@ -3,10 +3,14 @@ import React from "react";
 import { LinkButton } from "./LinkButton";
 
 export default {
-  title: "Components/LinkButton",
+  title: "Components/SeriesCard/SubElements",
   component: LinkButton,
 };
 
-export const DefaultButton = () => (
-  <LinkButton href="/" buttonText="Read more"></LinkButton>
-);
+const Template = (args) => <LinkButton {...args} />;
+
+export const DefaultLinkButton = Template.bind({});
+DefaultLinkButton.args = {
+  primary: true,
+  href: "/",
+};
