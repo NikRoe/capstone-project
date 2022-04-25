@@ -7,7 +7,7 @@ export function SeriesRating({ series }) {
       return (
         <>
           <StyledRating>({series.vote_average} &frasl; 10)</StyledRating>
-          <SeriesVoteCount series={series} />
+          <SeriesVoteCount voteCount={series.vote_count} />
         </>
       );
     } else if (series.vote_average >= 5) {
@@ -16,7 +16,7 @@ export function SeriesRating({ series }) {
           <StyledRating inputColor="orange">
             ({series.vote_average} &frasl; 10)
           </StyledRating>
-          <SeriesVoteCount series={series} />
+          <SeriesVoteCount voteCount={series.vote_count} />
         </>
       );
     } else {
@@ -25,7 +25,7 @@ export function SeriesRating({ series }) {
           <StyledRating inputColor="#FF5E4F">
             ({series.vote_average} &frasl; 10)
           </StyledRating>
-          <SeriesVoteCount series={series} />
+          <SeriesVoteCount voteCount={series.vote_count} />
         </>
       );
     }

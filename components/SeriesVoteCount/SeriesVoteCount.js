@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export function SeriesVoteCount({ series }) {
+export function SeriesVoteCount({ voteCount }) {
   return (
     <StyledSpan>
       {" "}
-      Based on {series.vote_count} {series.vote_count === 1 ? "Vote" : "Votes"}
+      Based on {voteCount} {voteCount === 1 ? "Vote" : "Votes"}
     </StyledSpan>
   );
 }

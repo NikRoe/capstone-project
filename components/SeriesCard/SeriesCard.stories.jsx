@@ -17,6 +17,9 @@ const exampleSeries = {
   vote_count: 20,
 };
 
-export const DefaultCard = () => (
-  <SeriesCard series={exampleSeries}></SeriesCard>
-);
+const Template = (args) => <SeriesCard {...args} />;
+
+export const DefaultSeriesCard = Template.bind({});
+DefaultSeriesCard.args = {
+  series: exampleSeries,
+};
