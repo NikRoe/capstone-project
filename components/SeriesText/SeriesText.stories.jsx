@@ -3,7 +3,7 @@ import React from "react";
 import { SeriesText } from "./SeriesText";
 
 export default {
-  title: "Components/SeriesText",
+  title: "Components/SeriesCard/SubElements",
   component: SeriesText,
 };
 

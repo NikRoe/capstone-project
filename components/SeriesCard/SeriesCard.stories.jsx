@@ -14,6 +14,7 @@ const exampleSeries = {
   poster_path: "/ohGz4HDYGTite1GmRhRuBMVAn03.jpg",
   id: 222,
   vote_average: 8.5,
+  vote_count: 20,
 };
 
 export const DefaultCard = () => (
