@@ -2,11 +2,6 @@ import React from "react";
 
 import { SeriesCard } from "./SeriesCard";
 
-export default {
-  title: "Components/SeriesCard",
-  component: SeriesCard,
-};
-
 const exampleSeries = {
   name: "Arcane",
   overview:
@@ -15,6 +10,12 @@ const exampleSeries = {
   id: 222,
   vote_average: 8.5,
   vote_count: 20,
+};
+
+export default {
+  title: "Components/SeriesCard",
+  component: SeriesCard,
+  args: exampleSeries,
 };
 
 const Template = (args) => <SeriesCard {...args} />;

@@ -2,30 +2,32 @@ import styled from "styled-components";
 import { SeriesVoteCount } from "../SeriesVoteCount/SeriesVoteCount";
 
 export function SeriesRating({ series }) {
-  if (series.vote_count !== 0) {
-    if (series.vote_average >= 7.5) {
+  const voteCount = series.vote_count;
+  const voteAverage = series.vote_average;
+  if (voteCount !== 0) {
+    if (voteAverage >= 7.5) {
       return (
         <>
-          <StyledRating>({series.vote_average} &frasl; 10)</StyledRating>
-          <SeriesVoteCount voteCount={series.vote_count} />
+          <StyledRating>({voteAverage} &frasl; 10)</StyledRating>
+          <SeriesVoteCount voteCount={voteCount} />
         </>
       );
-    } else if (series.vote_average >= 5) {
+    } else if (voteAverage >= 5) {
       return (
         <>
           <StyledRating inputColor="orange">
-            ({series.vote_average} &frasl; 10)
+            ({voteAverage} &frasl; 10)
           </StyledRating>
-          <SeriesVoteCount voteCount={series.vote_count} />
+          <SeriesVoteCount voteCount={voteCount} />
         </>
       );
     } else {
       return (
         <>
           <StyledRating inputColor="#FF5E4F">
-            ({series.vote_average} &frasl; 10)
+            ({voteAverage} &frasl; 10)
           </StyledRating>
-          <SeriesVoteCount voteCount={series.vote_count} />
+          <SeriesVoteCount voteCount={voteCount} />
         </>
       );
     }
