@@ -36,11 +36,12 @@ By navigating to the Watching page, you will see a list of all the series that y
 ## Tech Stack
 
 - React
-- Next.js
+- Next
 - Styled-components
 - MongoDB
 - mongoose
 - Storybook
+- Jest
 - SWR
 - axios
 - Vercel
@@ -51,16 +52,17 @@ By navigating to the Watching page, you will see a list of all the series that y
 - clone this repository
 - run `$ npm install` to install all dependencies
 - create `.env.example` in your root folder
-- add your API Key from [The Movie Data Base](https://www.themoviedb.org/)
-  - add your `MONGODB_URI`
-  - add your `GITHUB_ID`
-  - add your `GITHUB_SECRET`
+- to the `.env.example` add:
+  - your API Key from [The Movie Data Base](https://www.themoviedb.org/),
+  - your `MONGODB_URI`,
+  - your `GITHUB_ID`,
+  - your `GITHUB_SECRET`,
     - to get your `GITHUB_ID` and `GITHUB_SECRET` follow this [Guide](https://next-auth.js.org/providers/github)
-  - add your `GOOGLE_CLIENT_ID`
-  - add your `GOOGLE_CLIENT_SECRET`
+  - your `GOOGLE_CLIENT_ID`,
+  - your `GOOGLE_CLIENT_SECRET`,
     - to get your `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` follow this [Guide](https://next-auth.js.org/providers/google)
-  - add your `NEXTAUTH_URL`
-  - add your `NEXTAUTH_SECRET`
-- run `$ npm run dev` to see app in development mode
+  - your `NEXTAUTH_URL`,
+  - your `NEXTAUTH_SECRET`
+- run `$ npm run dev` to run the app in development mode
 - run tests with `$ npm run test`
 - run storybook with `$ npm run storybook`
