@@ -10,7 +10,7 @@ With Seriesly you can keep track of your watch progress in over 7000 series.
 
 ## How to and navigation
 
-When you open [Seriesly](capstone-project-virid.vercel.app) you will start at the Home page and see a list of 20 popular series. You can log in (with either Google or GitHub) and thus save your watched series as well as episodes in a database.
+When you open [Seriesly](seriesly.vercel.app) you will start at the Home page and see a list of 20 popular series. You can log in (with either Google or GitHub) and thus save your watched series as well as episodes in a database.
 
 There are several ways of navigating through Seriesly:
 
@@ -45,3 +45,22 @@ By navigating to the Watching page, you will see a list of all the series that y
 - axios
 - Vercel
 - TMDB API
+
+## Project Setup
+
+- clone this repository
+- run `$ npm install` to install all dependencies
+- create `.env.example` in your root folder
+- add your API Key from [The Movie Data Base](https://www.themoviedb.org/)
+  - add your `MONGODB_URI`
+  - add your `GITHUB_ID`
+  - add your `GITHUB_SECRET`
+    - to get your `GITHUB_ID` and `GITHUB_SECRET` follow this [Guide](https://next-auth.js.org/providers/github)
+  - add your `GOOGLE_CLIENT_ID`
+  - add your `GOOGLE_CLIENT_SECRET`
+    - to get your `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` follow this [Guide](https://next-auth.js.org/providers/google)
+  - add your `NEXTAUTH_URL`
+  - add your `NEXTAUTH_SECRET`
+- run `$ npm run dev` to see app in development mode
+- run tests with `$ npm run test`
+- run storybook with `$ npm run storybook`
