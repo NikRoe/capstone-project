@@ -4,7 +4,7 @@ import { RightArrow } from "../../lib/RightArrow";
 
 export function LinkButton({ href }) {
   return (
-    <div>
+    <div role={"button"}>
       <Link href={href} passHref>
         <StyledAnchor>
           <RightArrow />

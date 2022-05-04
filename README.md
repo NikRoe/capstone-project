@@ -2,15 +2,15 @@
 
 ### This is a capstone project for the web development bootcamp of [neuefische](https://www.neuefische.de/)
 
-With Seriesly you can keep track of your watch progress in over 7000 series.
+With Seriesly you can keep track of your watch progress in around 7000 series.
 
 - You can search for series,
-- add them to your list of currently watched series,
-- mark every episode as watched to never forget again where you left of.
+- add them to your list of currently watching series,
+- mark episodes as watched to never forget again where you left of.
 
 ## How to and navigation
 
-When you open [Seriesly](capstone-project-virid.vercel.app) you will start at the Home page and see a list of 20 popular series. You can log in (with either Google or GitHub) and thus save your watched series as well as episodes in a database.
+When you open [Seriesly](seriesly.vercel.app) you will start at the Home page and see a list of 20 popular series. You can log in (with either Google or GitHub) and thus save your watched series as well as episodes in a database.
 
 There are several ways of navigating through Seriesly:
 
@@ -36,12 +36,33 @@ By navigating to the Watching page, you will see a list of all the series that y
 ## Tech Stack
 
 - React
-- Next.js
+- Next
 - Styled-components
 - MongoDB
 - mongoose
 - Storybook
+- Jest
 - SWR
 - axios
 - Vercel
 - TMDB API
+
+## Project Setup
+
+- clone this repository
+- run `$ npm install` to install all dependencies
+- create `.env.example` in your root folder
+- to the `.env.example` add:
+  - your API Key from [The Movie Data Base](https://www.themoviedb.org/),
+  - your `MONGODB_URI`,
+  - your `GITHUB_ID`,
+  - your `GITHUB_SECRET`,
+    - to get your `GITHUB_ID` and `GITHUB_SECRET` follow this [Guide](https://next-auth.js.org/providers/github)
+  - your `GOOGLE_CLIENT_ID`,
+  - your `GOOGLE_CLIENT_SECRET`,
+    - to get your `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` follow this [Guide](https://next-auth.js.org/providers/google)
+  - your `NEXTAUTH_URL`,
+  - your `NEXTAUTH_SECRET`
+- run `$ npm run dev` to run the app in development mode
+- run tests with `$ npm run test`
+- run storybook with `$ npm run storybook`

@@ -15,6 +15,7 @@ const exampleSeries = {
 export default {
   title: "Components/SeriesCard",
   component: SeriesCard,
+  args: exampleSeries,
 };
 
 const Template = (args) => <SeriesCard {...args} />;
