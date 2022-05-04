@@ -2,11 +2,11 @@
 
 ### This is a capstone project for the web development bootcamp of [neuefische](https://www.neuefische.de/)
 
-With Seriesly you can keep track of your watch progress in over 7000 series.
+With Seriesly you can keep track of your watch progress in around 7000 series.
 
 - You can search for series,
-- add them to your list of currently watched series,
-- mark every episode as watched to never forget again where you left of.
+- add them to your list of currently watching series,
+- mark episodes as watched to never forget again where you left of.
 
 ## How to and navigation
 
