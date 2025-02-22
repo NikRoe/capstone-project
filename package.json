@@ -16,7 +16,6 @@
     "axios": "^0.26.1",
     "fast-fuzzy": "^1.11.1",
     "mongodb": "^4.5.0",
-    "mongodb-adapter": "^0.0.4",
     "mongoose": "^6.2.10",
     "next": "12.1.0",
     "next-auth": "^4.3.1",
