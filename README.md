@@ -35,17 +35,15 @@ By navigating to the Watching page, you will see a list of all the series that y
 
 ## Tech Stack
 
-- React
-- Next
-- Styled-components
-- MongoDB
-- mongoose
-- Storybook
-- Jest
-- SWR
-- axios
-- Vercel
-- TMDB API
+- [React](https://react.dev/) – The JavaScript library for building user
+  interfaces.
+- [Next.js](https://nextjs.org/) – The React framework used for development.
+- [styled-components](https://styled-components.com/) – CSS-in-JS library for
+  styling components.
+- [SWR](https://swr.vercel.app/) – Data fetching and state management
+- [MongoDB](https://www.mongodb.com/) – The database used for persisting todos.
+- [TMDB API](https://developer.themoviedb.org/docs/getting-started) – The API
+  used for fetching movie and TV show data.
 
 ## Project Setup
 
