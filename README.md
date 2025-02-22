@@ -49,20 +49,47 @@ By navigating to the Watching page, you will see a list of all the series that y
 
 ## Project Setup
 
-- clone this repository
-- run `$ npm install` to install all dependencies
-- create `.env.example` in your root folder
-- to the `.env.example` add:
-  - your API Key from [The Movie Data Base](https://www.themoviedb.org/),
-  - your `MONGODB_URI`,
-  - your `GITHUB_ID`,
-  - your `GITHUB_SECRET`,
-    - to get your `GITHUB_ID` and `GITHUB_SECRET` follow this [Guide](https://next-auth.js.org/providers/github)
-  - your `GOOGLE_CLIENT_ID`,
-  - your `GOOGLE_CLIENT_SECRET`,
-    - to get your `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` follow this [Guide](https://next-auth.js.org/providers/google)
-  - your `NEXTAUTH_URL`,
-  - your `NEXTAUTH_SECRET`
-- run `$ npm run dev` to run the app in development mode
-- run tests with `$ npm run test`
-- run storybook with `$ npm run storybook`
+1. Clone the repository:
+
+```bash
+git clone git@github.com:NikRoe/capstone-project.git
+cd capstone-project
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Configure environment variables:
+
+- Create a `.env.local` file in the root directory of the project.
+
+- Add the following variables to `.env.local`:
+
+```env
+TMDB_API_KEY=your_tmdb_api_key
+MONGODB_URI=your_mongodb_uri
+GITHUB_ID=your_github_id
+GITHUB_SECRET=your_github_secret
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+NEXTAUTH_URL=your_nextauth_url
+NEXTAUTH_SECRET=your_nextauth_secret
+```
+
+- Get your API keys and credentials:
+
+  - TMDB API Key: Obtain it from
+    [The Movie Data Base](https://www.themoviedb.org/).
+  - GitHub ID & Secret: follow this
+    [guide](https://next-auth.js.org/providers/github) to retrieve them.
+  - Google Client ID & Secret: Follow this
+    [guide](https://next-auth.js.org/providers/google) to generate them.
+
+4. Run the project:
+
+```bash
+npm run dev
+```
